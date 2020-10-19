@@ -1,13 +1,17 @@
 {
-  "manifest_version" : 2,
+  "manifest_version": 2,
   "name": "emoji-translator",
-  "version": "1.0", 
+  "version": "1.0",
 
-  "description": "Translates certain keystrokes to emoji",
+  "description": "Emoji Translator for :emoji:",
 
-  "content_scripts" : [
+  "icons": {
+    "48": "Butterfly.png"
+  },
+
+  "content_scripts": [
     {
-      "matches": ["*"],
+      "matches": ["<all_urls>"],
       "js": ["index.js"]
     }
   ]
