@@ -1,0 +1,14 @@
+{
+  "manifest_version" : 2,
+  "name": "emoji-translator",
+  "version": "1.0", 
+
+  "description": "Translates certain keystrokes to emoji",
+
+  "content_scripts" : [
+    {
+      "matches": ["*"],
+      "js": ["index.js"]
+    }
+  ]
+}
