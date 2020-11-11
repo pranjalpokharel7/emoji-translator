@@ -1,57 +1,93 @@
-let emojiName = "";
-const emojiCollection = {
-  "heart" : "❤️",
-  "fire" : "🔥",
+let dictionary = new Map();
+
+dictionary.set(':apple:', '🍎');
+dictionary.set(':banana:', '🍌');
+dictionary.set(':bang:', '💥');
+dictionary.set(':baseball:', '⚾');
+dictionary.set(':basketball:', '🏀');
+dictionary.set(':beer:', '🍺');
+dictionary.set(':bicycle:', '🚴');
+dictionary.set(':bike:', '🚴');
+dictionary.set(':bomb:', '💣');
+dictionary.set(':boy:', '👦');
+dictionary.set(':bug:', '🐛');
+dictionary.set(':burger:', '🍔');
+dictionary.set(':burn:', '🔥');
+dictionary.set(':cake:', '🎂');
+dictionary.set(':candy:', '🍬');
+dictionary.set(':cat:', '🐱');
+dictionary.set(':celebration:', '🎉');
+dictionary.set(':cheeseburger:', '🍔');
+dictionary.set(':cookie:', '🍪');
+dictionary.set(':cool:', '😎');
+dictionary.set(':cry:', '😢');
+dictionary.set(':dog:', '🐶');
+dictionary.set(':doge:', '🐕');
+dictionary.set(':earth:', '🌎');
+dictionary.set(':explode:', '💥');
+dictionary.set(':fart:', '💨');
+dictionary.set(':fast:', '💨');
+dictionary.set(':female:', '👩');
+dictionary.set(':fire:', '🔥');
+dictionary.set(':fish:', '🐟');
+dictionary.set(':flame:', '🔥');
+dictionary.set(':flower:', '🌹');
+dictionary.set(':food:', '🍕');
+dictionary.set(':football:', '🏈');
+dictionary.set(':girl:', '👧');
+dictionary.set(':golf:', '⛳');
+dictionary.set(':hamburger:', '🍔');
+dictionary.set(':happy:', '😀');
+dictionary.set(':heart:', '❤️');
+dictionary.set(':horse:', '🐴');
+dictionary.set(':hot:', '🔥');
+dictionary.set(':kiss:', '😘');
+dictionary.set(':laugh:', '😂');
+dictionary.set(':lit:', '🔥');
+dictionary.set(':lock:', '🔒');
+dictionary.set(':lol:', '😂');
+dictionary.set(':love:', '😍');
+dictionary.set(':male:', '👨');
+dictionary.set(':man:', '👨');
+dictionary.set(':monkey:', '🐵');
+dictionary.set(':moon:', '🌙');
+dictionary.set(':note:', '📝');
+dictionary.set(':paint:', '🎨');
+dictionary.set(':panda:', '🐼');
+dictionary.set(':party:', '🎉');
+dictionary.set(':pig:', '🐷');
+dictionary.set(':pizza:', '🍕');
+dictionary.set(':planet:', '🌎');
+dictionary.set(':rose:', '🌹');
+dictionary.set(':rofl:', '😂');
+dictionary.set(':sad:', '😢');
+dictionary.set(':sleep:', '😴');
+dictionary.set(':smile:', '😀');
+dictionary.set(':smiley:', '😀');
+dictionary.set(':soccer:', '⚽');
+dictionary.set(':star:', '⭐');
+dictionary.set(':sun:', '☀️');
+dictionary.set(':sunglasses:', '😎');
+dictionary.set(':surprised:', '😮');
+dictionary.set(':tree:', '🌲');
+dictionary.set(':trophy:', '🏆');
+dictionary.set(':win:', '🏆');
+dictionary.set(':wind:', '💨');
+dictionary.set(':wine:', '🍷');
+dictionary.set(':wink:', '😉');
+dictionary.set(':woman:', '👩');
+dictionary.set(':world:', '🌎');
+dictionary.set(':wow:', '😮');
+
+function replaceByEmoji (match){
+  return dictionary.has(match) ? dictionary.get(match) : match;
 }
 
-const stack = {
-  bottom: "$",
-  emoteKey: [],
-  index: 0,
-  cursorEnd: -1,
-};
-
-const emojiListener = event => {
-  const character = event.key;
-
-  if (character == ":"){
-    if (stack.bottom == "$"){
-      // stack.cursorEnd = event.target.selectionStart;
-      startIndex = event.target.value.length;
-      stack.bottom = ":";
-    }
-    else if (stack.bottom == ":"){ 
-      stack.bottom = "$";
-
-      emojiName = "";
-      stack.emoteKey.forEach(item => {emojiName += item;});
-
-      if (emojiCollection[emojiName]){
-        event.preventDefault();
-        const prevString = event.target.value;
-        const startIndex = prevString.indexOf(`:${emojiName}`);
-        const newString = prevString.substring(0, startIndex) + emojiCollection[emojiName] + prevString.substring(startIndex + stack.index + 1, prevString.length);
-        event.target.value = newString; 
-      }
-      stack.emoteKey.length = 0;
-      stack.index = 0;
-    }  
-    return;
-  }
-
-  if (stack.bottom == ":"){
-    if (event.keyCode == 8){ // for backspace
-      stack.emoteKey.splice(stack.index-1, 1);
-      stack.index = stack.index > 0 ? stack.index - 1 : 0;
-    }
-    else if ((event.keyCode >= 65 && event.keyCode <= 90) || character == "_" || character == " ") {
-      stack.emoteKey.push(character);
-      stack.index += 1;
-    }
-    else {
-      return;
-    }
-  }
+const emojiRegex = event => {
+  let re = /:[^:\s]*(?:::[^:\s]*)*:/g;
+  const prevString = event.target.value;
+  const newString = prevString.replaceAll(re, replaceByEmoji);
+  event.target.value = newString;
 }
 
 const testEvent = event => {
@@ -62,12 +98,10 @@ const arrayTextInput = document.querySelectorAll("input[type=text]");
 const arrayTextArea = document.querySelectorAll("textarea");
 
 arrayTextInput.forEach((item)=>{
-  item.addEventListener("keydown", emojiListener);
+  item.addEventListener("keyup", emojiRegex);
 });
 
 arrayTextArea.forEach((item)=>{
-  item.addEventListener("keydown", emojiListener);
-  //console.log(item); 
+  item.addEventListener("keyup", emojiRegex);
 });
 
-console.log(arrayTextArea);

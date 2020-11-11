@@ -8,6 +8,16 @@
   "icons": {
     "48": "Butterfly.png"
   },
+  
+  "permissions": [
+    "activeTab"
+  ],
+
+  "browser_action": {
+    "default_icon": "Butterfly.png",
+    "default_title": "Emoji Translator",
+    "default_popup": "popup/index.html"
+  },
 
   "content_scripts": [
     {
