@@ -1,5 +1,23 @@
 html, body {
-  width: 100px;
+  width: 175px;
 }
 
+#emoji-table{
+  display: flex;
+  flex-wrap: wrap;
+  cursor: pointer;
+  justify-content: space-between;
+}
+
+.instruction{
+  /* font-style: italic; */
+  color: rebeccapurple;
+}
+
+button{
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  font-size: 20px;
+}
 

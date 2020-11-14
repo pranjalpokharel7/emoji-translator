@@ -10,7 +10,9 @@
   },
   
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "clipboardRead",
+    "clipboardWrite"
   ],
 
   "browser_action": {
