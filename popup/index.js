@@ -1,14 +1,33 @@
+let docu = document.querySelectorAll("button");
 
-var docu = document.querySelectorAll("button");
-
-// docu[0].onclick = show;
-for(let i=0; i<docu.length; i++)
-{
+for(let i=0; i<docu.length; i++) {
     show = function(){
-        // let copyThis = "F";
-        // copyThis = emo;
-        // alert(emo);
         navigator.clipboard.writeText(docu[i].textContent);
     }
     docu[i].addEventListener('click',show);
 }
+
+let counter = 0;
+const next = document.querySelector("#next");
+const previous = document.querySelector("#previous");
+const pages = document.querySelectorAll(".page");
+const lastPage = pages.length;
+
+const pageScroll = (event) => {
+    const prevCounter = counter;
+    const currentPage = event.target;
+
+    if (currentPage.id === "previous")
+        counter = counter === 0 ? lastPage-1 : counter - 1;
+    else 
+        counter = (counter + 1) % lastPage;
+
+    pages[counter].style.display = "block";
+    pages[prevCounter].style.display = "none";
+}
+
+next.addEventListener("click", pageScroll); 
+previous.addEventListener("click", pageScroll); 
+console.log(pages);
+
+

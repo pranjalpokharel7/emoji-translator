@@ -1,12 +1,11 @@
 html, body {
-  width: 175px;
+  width: 200px;
 }
 
 #emoji-table{
   display: flex;
   flex-wrap: wrap;
   cursor: pointer;
-  justify-content: space-between;
 }
 
 .instruction{
@@ -14,10 +13,17 @@ html, body {
   color: rebeccapurple;
 }
 
+.page {
+  display: none;
+}
+
+.page:nth-child(1) {
+  display: block;
+}
+
 button{
-  border: none;
-  background-color: inherit;
-  cursor: pointer;
+  border: 1px solid #121212;
   font-size: 20px;
+  cursor: pointer;
 }
 
