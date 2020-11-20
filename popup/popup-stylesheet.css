@@ -21,10 +21,22 @@ body{
 
 .toggle-button {
   font-size: 16px;
+  font-weight: bolder;
+  cursor: pointer;
+  color: whitesmoke;
+}
+
+.toggle-button#toggle-on{
+  background-color: green;
+}
+
+.toggle-button#toggle-off{
+  background-color: red;
 }
 
 .instruction{
   color: rebeccapurple;
+  background-color: #90ee90;
 }
 
 .page {
@@ -40,7 +52,7 @@ body{
   cursor: pointer;
   padding: 7px;
   min-width: 50px;
-  min-height: 50px;  
+  min-height: 50px;
 }
 
 button#next{
