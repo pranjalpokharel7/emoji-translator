@@ -4040,11 +4040,6 @@ emojiDictionary.set(':wales:', '🏴󠁧󠁢󠁷󠁬󠁳󠁿');
 const re =/:[a-z_]+:/g;
 //const re = /:[^:\s]*(?:::[^:\s]*)*:/g;
 
-// lorem ipsum
-const logEvent = event => {
-  console.log("lorem ipsum");
-}
-
 function replaceByEmoji (match){
   return emojiDictionary.has(match) ? emojiDictionary.get(match) : match;
 }
@@ -4074,7 +4069,7 @@ const updateEmoji = node => {
   }
 }
 
-document.addEventListener("keydown", event => {
+document.body.addEventListener("keydown", event => {
   const nodeName = event.target.nodeName.toLowerCase();
   if (nodeName == "body")
     return;

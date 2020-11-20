@@ -7,8 +7,6 @@ body{
   width: 425px;
   height: 280px;
   padding: 2px;
-  border-radius: 5px;
-  border: tomato solid 3px;
   background-color:whitesmoke;
   overflow: hidden;
 }
@@ -16,16 +14,12 @@ body{
 #emoji-table{
   display: flex;
   flex-wrap: wrap;
-  cursor: pointer;
   justify-content: space-around;
-  border: palevioletred 5px solid;
-  padding: 5px;
-  margin: 2px, 2px, 2px, 2px;
+  margin: 2px;
   overflow: scroll;
 }
 
 .instruction{
-  /* font-style: italic; */
   color: rebeccapurple;
 }
 
@@ -38,10 +32,8 @@ body{
 }
 
 button{
-  /* border: 1px solid #121212; */
   font-size: 20px;
   cursor: pointer;
-  margin: 2px, 2px, 2px, 2px;
   padding: 7px;
   min-width: 50px;
   min-height: 50px;  
@@ -52,7 +44,6 @@ button#next{
   height: 200px;
   padding: 3px;
   justify-self: start;
-  
 }
 
 button#previous{
@@ -72,8 +63,3 @@ button#previous{
   align-self: center;
 }
 
-button:hover{
-  font-size: 23px;
-  transition: 120ms ease-in;
-  padding:0px;
-}

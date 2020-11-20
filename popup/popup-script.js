@@ -1,3 +1,18 @@
+const toggleOn = document.querySelector("#toggle-on");
+const toggleOff = document.querySelector("#toggle-off");
+
+toggleOn.addEventListener("click", function() {
+    browser.runtime.sendMessage({
+        toggle : true, 
+    });
+});
+
+toggleOff.addEventListener("click", function() {
+    browser.runtime.sendMessage({
+        toggle : false, 
+    });
+});
+
 let docu = document.querySelectorAll("button");
 
 for(let i=0; i<docu.length; i++) {
@@ -28,6 +43,5 @@ const pageScroll = (event) => {
 
 next.addEventListener("click", pageScroll); 
 previous.addEventListener("click", pageScroll); 
-console.log(pages);
 
 
