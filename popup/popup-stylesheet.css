@@ -1,8 +1,8 @@
 html{
   width: 425px;
   height: 280px;
-
 }
+
 body{
   width: 425px;
   height: 280px;
@@ -19,6 +19,10 @@ body{
   overflow: scroll;
 }
 
+.toggle-button {
+  font-size: 16px;
+}
+
 .instruction{
   color: rebeccapurple;
 }
@@ -31,7 +35,7 @@ body{
   display: block;
 }
 
-button{
+.emoji-button{
   font-size: 20px;
   cursor: pointer;
   padding: 7px;
