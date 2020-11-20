@@ -19,7 +19,7 @@ const pageScroll = (event) => {
 
     if (currentPage.id === "previous")
         counter = counter === 0 ? lastPage-1 : counter - 1;
-    else 
+    else
         counter = (counter + 1) % lastPage;
 
     pages[counter].style.display = "block";

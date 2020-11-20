@@ -1,11 +1,27 @@
-html, body {
-  width: 200px;
+html{
+  width: 425px;
+  height: 280px;
+
+}
+body{
+  width: 425px;
+  height: 280px;
+  padding: 2px;
+  border-radius: 5px;
+  border: tomato solid 3px;
+  background-color:whitesmoke;
+  overflow: hidden;
 }
 
 #emoji-table{
   display: flex;
   flex-wrap: wrap;
   cursor: pointer;
+  justify-content: space-around;
+  border: palevioletred 5px solid;
+  padding: 5px;
+  margin: 2px, 2px, 2px, 2px;
+  overflow: scroll;
 }
 
 .instruction{
@@ -22,8 +38,42 @@ html, body {
 }
 
 button{
-  border: 1px solid #121212;
+  /* border: 1px solid #121212; */
   font-size: 20px;
   cursor: pointer;
+  margin: 2px, 2px, 2px, 2px;
+  padding: 7px;
+  min-width: 50px;
+  min-height: 50px;  
 }
 
+button#next{
+  min-width: 30px;
+  height: 200px;
+  padding: 3px;
+  justify-self: start;
+  
+}
+
+button#previous{
+  justify-self: end;
+  min-width: 30px;
+  padding: 3px;
+  height: 200px;
+}
+
+.outer-table{
+  margin-top: -5px;
+  width: 100%;
+  height: 200px;
+  padding: 12px;
+  display: grid;
+  grid-template-columns: 20px minmax(360px, 360px) 20px;
+  align-self: center;
+}
+
+button:hover{
+  font-size: 23px;
+  transition: 120ms ease-in;
+  padding:0px;
+}
