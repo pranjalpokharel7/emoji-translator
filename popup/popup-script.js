@@ -1,20 +1,29 @@
-const toggleOn = document.querySelector("#toggle-on");
-const toggleOff = document.querySelector("#toggle-off");
 let instruction = document.querySelector(".instruction");
+let toggleChoice = null;
+let choiceSelected = null;
 
-toggleOn.addEventListener("click", function() {
-    instruction.style.background = "#90EE90";
-    browser.runtime.sendMessage({
-        toggle : true, 
-    });
-});
+let toggleHistory = browser.storage.local.get("toggle");
+toggleHistory.then(
+    item => {
+        const toggleOn = document.querySelector("#toggle-on");
+        toggleChoice = item.toggle;
+        toggleOn.textContent = toggleChoice ? "TURN OFF" : "TURN ON";
+        toggleOn.addEventListener("click", function() {
+            toggleChoice = !toggleChoice;
+            toggleOn.textContent = toggleChoice ? "TURN OFF" : "TURN ON";
+            choiceSelected = browser.storage.local.set({
+                toggle : toggleChoice,
+            });
+            if (choiceSelected){
+                browser.runtime.sendMessage({
+                    toggle : toggleChoice, 
+                });
+            }
+        });
+    }, 
+    error => console.log(`Error: ${error}`)
+);
 
-toggleOff.addEventListener("click", function() {
-    instruction.style.background = "#ff7f7f";
-    browser.runtime.sendMessage({
-        toggle : false, 
-    })
-});
 
 let docu = document.querySelectorAll("button");
 
@@ -59,7 +68,7 @@ function filter()
         for(let i = 0; i<emos.length; i++)
         {
             let emoname = emos[i].id.substring(1, emos[i].id.length-1);
-            
+
             if(emoname.indexOf(input) > -1)
             {
                 //do nothing
@@ -74,14 +83,7 @@ function filter()
     }
 
     //back to normal
-    // pages.forEach(item => item.style.display = "none");
-    // pages[0].style.display = "block";
-        
-
-
-
 }
 
 let searchDoc = document.querySelector(".search");
-
 searchDoc.addEventListener("keyup", filter);

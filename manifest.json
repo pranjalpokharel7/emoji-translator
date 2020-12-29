@@ -13,7 +13,8 @@
     "<all_urls>",
     "activeTab",
     "clipboardRead",
-    "clipboardWrite"
+    "clipboardWrite",
+    "storage"
   ],
 
   "browser_action": {
