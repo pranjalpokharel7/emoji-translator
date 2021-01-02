@@ -1,11 +1,11 @@
 html{
   width: 425px;
-  height: 280px;
+  height: 320px;
 }
 
 body{
   width: 425px;
-  height: 280px;
+  height: 250px;
   padding: 2px;
   background-color:whitesmoke;
   overflow: hidden;
@@ -13,6 +13,14 @@ body{
 
 #emoji-table{
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 2px;
+  overflow: scroll;
+}
+
+#emoticon-table{
+  display: none;
   flex-wrap: wrap;
   justify-content: space-around;
   margin: 2px;
@@ -45,6 +53,10 @@ body{
 
 .page:nth-child(1) {
   display: block;
+}
+
+.type-toggle{
+  display: inline;
 }
 
 .emoji-button{

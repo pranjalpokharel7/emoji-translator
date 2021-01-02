@@ -82,8 +82,28 @@ function filter()
         }
     }
 
-    //back to normal
+    //back to normal aka is shuffled once search is used
 }
 
 let searchDoc = document.querySelector(".search");
 searchDoc.addEventListener("keyup", filter);
+
+//buttons
+let emojiToggle = document.querySelector("#emoji-toggle");
+let emoteToggle = document.querySelector("#emote-toggle");
+
+//tables
+let emojiTable = document.querySelector("#emoji-table");
+let emoteTable = document.querySelector("#emoticon-table");
+
+
+emojiToggle.addEventListener("click",function(){
+    emoteTable.style.display = "none";
+    emojiTable.style.display = "flex";
+    
+});
+
+emoteToggle.addEventListener("click",function(){
+    emojiTable.style.display = "none";
+    emoteTable.style.display = "flex";
+});
