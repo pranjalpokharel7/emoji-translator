@@ -96,11 +96,9 @@ let emoteToggle = document.querySelector("#emote-toggle");
 let emojiTable = document.querySelector("#emoji-table");
 let emoteTable = document.querySelector("#emoticon-table");
 
-
 emojiToggle.addEventListener("click",function(){
     emoteTable.style.display = "none";
     emojiTable.style.display = "flex";
-    
 });
 
 emoteToggle.addEventListener("click",function(){

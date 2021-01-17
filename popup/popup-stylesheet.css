@@ -1,11 +1,11 @@
 html{
-  width: 425px;
-  height: 320px;
+  width: 420px;
+  height: 450px;
 }
 
 body{
-  width: 425px;
-  height: 250px;
+  width: 420px;
+  height: 450px;
   padding: 2px;
   background-color:whitesmoke;
   overflow: hidden;
@@ -13,18 +13,20 @@ body{
 
 #emoji-table{
   display: flex;
+  height: 250px;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin: 2px;
-  overflow: scroll;
+  margin-top: 15px;
+  overflow-y: scroll;
 }
 
 #emoticon-table{
   display: none;
+  height: 250px;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin: 2px;
-  overflow: scroll;
+  margin-top: 15px;
+  overflow-y: scroll;
 }
 
 .toggle-button {
@@ -36,15 +38,6 @@ body{
 
 .toggle-button#toggle-on{
   background-color: green;
-}
-
-.toggle-button#toggle-off{
-  background-color: red;
-}
-
-.instruction{
-  color: rebeccapurple;
-  background-color: #90ee90;
 }
 
 .page {
@@ -62,32 +55,18 @@ body{
 .emoji-button{
   font-size: 20px;
   cursor: pointer;
-  padding: 7px;
+  padding: 5px;
   min-width: 50px;
   min-height: 50px;
 }
 
 button#next{
   min-width: 30px;
-  height: 200px;
   padding: 3px;
-  justify-self: start;
 }
 
 button#previous{
-  justify-self: end;
   min-width: 30px;
   padding: 3px;
-  height: 200px;
-}
-
-.outer-table{
-  margin-top: -5px;
-  width: 100%;
-  height: 200px;
-  padding: 12px;
-  display: grid;
-  grid-template-columns: 20px minmax(360px, 360px) 20px;
-  align-self: center;
 }
 
