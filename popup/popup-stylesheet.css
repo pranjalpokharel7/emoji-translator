@@ -22,11 +22,17 @@ body{
 
 #emoticon-table{
   display: none;
-  height: 250px;
   flex-wrap: wrap;
   justify-content: space-around;
+  height: 250px;
   margin-top: 15px;
   overflow-y: scroll;
+}
+
+.emote-button{
+  width: 200px;
+  height: 40px;
+  font-size: 12px;
 }
 
 .toggle-button {
@@ -70,3 +76,17 @@ button#previous{
   padding: 3px;
 }
 
+#search-bar{
+  display: flex;
+  flex-grow: nowrap;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.search {
+  width: 67%;
+}
+
+#next, #previous {
+  width: 12%;
+}
