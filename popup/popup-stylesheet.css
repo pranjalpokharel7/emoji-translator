@@ -29,8 +29,17 @@ body{
   overflow-y: scroll;
 }
 
+#fab-table{
+  display: none;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 250px;
+  margin-top: 15px;
+  overflow-y: scroll;
+}
+
 .emote-button{
-  width: 200px;
+  width: 180px;
   height: 40px;
   font-size: 12px;
 }
@@ -67,11 +76,13 @@ body{
 }
 
 button#next{
+  display:inline;
   min-width: 30px;
   padding: 3px;
 }
 
 button#previous{
+  display: inline;
   min-width: 30px;
   padding: 3px;
 }
