@@ -12,7 +12,7 @@ body{
 }
 
 #emoji-table{
-  display: flex;
+  display: none;
   height: 250px;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -31,6 +31,16 @@ body{
 
 #fab-table{
   display: none;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 250px;
+  margin-top: 15px;
+  overflow-y: scroll;
+}
+
+#recents-table
+{
+  display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   height: 250px;
@@ -76,19 +86,19 @@ body{
 }
 
 button#next{
-  display:inline;
+  display:none;
   min-width: 30px;
   padding: 3px;
 }
 
 button#previous{
-  display: inline;
+  display: none;
   min-width: 30px;
   padding: 3px;
 }
 
 #search-bar{
-  display: flex;
+  display: none;
   flex-grow: nowrap;
   justify-content: space-between;
   margin-top: 10px;
@@ -96,6 +106,7 @@ button#previous{
 
 .search {
   width: 67%;
+  display: none;
 }
 
 #next, #previous {
