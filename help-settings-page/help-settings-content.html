@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./help-settings-stylesheet.css">
+  </head>
+  <body>
+    <header>
+      <p id="main-heading-text">
+        Emoji Translator
+      </p>
+      <div id = "all-tabs">
+        <span class="tab" id="settings">Settings</span>
+        <span class="tab" id="dictionary">Dictionary</span>
+        <span class="tab" id="about">About</span>
+      </div>
+    </header>
+    <main>
+      <div class="page" id="settings-page">
+        <form>
+          <p>
+            <label for="lead-ch">Starting Character</label>
+            <input type="text" id="lead-ch">
+          </p>
+          <p>
+            <label for="end-ch">Closing Character</label>
+            <input id="end-ch">
+          </p>
+        </form>
+        We will also include custom naming for emojis by the users if time 
+        remains.
+      </div>
+      <div class="page" id="dictionary" style="display:none">
+        Here will be the text to emoji translation table
+      </div>
+      <div class="page" id="about" style="display:none">
+        This is the about page. Lorem Ipsum.
+      </div>
+    </main>
+    <script src="./help-settings-script.js"></script>
+  </body>
+</html>

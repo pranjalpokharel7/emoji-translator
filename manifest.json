@@ -25,6 +25,16 @@
 
   "background" : {
     "scripts": ["./backround-script.js"]
+  },
+
+  "options_ui":{
+    "page": "./settings/settings-content.html"
+  },
+
+  "browser_specific_settings":{
+    "gecko":{
+      "id": "emojitranslator@addons.com"
+    }
   }
 
 }

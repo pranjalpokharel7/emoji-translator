@@ -54,13 +54,6 @@ body{
   font-size: 12px;
 }
 
-.toggle-button {
-  font-size: 16px;
-  font-weight: bolder;
-  cursor: pointer;
-  color: whitesmoke;
-}
-
 .toggle-button#toggle-on{
   background-color: green;
 }

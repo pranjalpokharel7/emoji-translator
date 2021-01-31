@@ -1,11 +1,12 @@
-let instruction = document.querySelector(".instruction");
+//---------------- toggle button code ----------------
+
 let toggleChoice = null;
 let choiceSelected = null;
 
 let toggleHistory = browser.storage.local.get("toggle");
 toggleHistory.then(
     item => {
-        const toggleOn = document.querySelector("#toggle-on");
+        const toggleOn = document.querySelector("#toggle-button");
         toggleChoice = item.toggle;
         toggleOn.textContent = toggleChoice ? "TURN OFF" : "TURN ON";
         toggleOn.addEventListener("click", function() {
@@ -23,6 +24,20 @@ toggleHistory.then(
     }, 
     error => console.log(`Error: ${error}`)
 );
+
+//---------------- settings page ----------------
+
+let settingPage = {
+    url: '../help-settings-page/help-settings-content.html',
+}
+let settingButton = document.querySelector('#settings-button');
+settingButton.addEventListener("click", () => {
+    let tabCreation = browser.windows.create(settingPage);
+    tabCreation.then(
+        () => console.log("Settings Page Opened"),
+        () => console.log(`Errror in opning settings page: ${error}`)
+    )
+})
 
 
 let docu = document.querySelectorAll("button");
@@ -67,35 +82,35 @@ function filter()
     if(emojiTable.style.display === "flex")
     {
 
-            if(input === '')
+        if(input === '')
+        {
+            emojiStyleReset();
+        }
+
+        else{
+            pages.forEach(item => item.style.display = "block");
+
+            for(let i = 0; i<emos.length; i++)
             {
-                emojiStyleReset();
-            }
+                let emoname = emos[i].id.substring(1, emos[i].id.length-1);
 
-            else{
-                pages.forEach(item => item.style.display = "block");
-
-                for(let i = 0; i<emos.length; i++)
+                if(emoname.indexOf(input) > -1) //returns first index at which the search val is found
                 {
-                    let emoname = emos[i].id.substring(1, emos[i].id.length-1);
-
-                    if(emoname.indexOf(input) > -1) //returns first index at which the search val is found
-                    {
-                        //do nothing
-                        // console.log(emoname);
-                        emos[i].style.display = "inline-block";
-                    }
-                    else{
-                        emos[i].style.display = "none";
-                    }
-
+                    //do nothing
+                    // console.log(emoname);
+                    emos[i].style.display = "inline-block";
                 }
+                else{
+                    emos[i].style.display = "none";
+                }
+
             }
+        }
     }
 
 
     // if (emotes.style.display === "flex"){
-        
+
     //     //emotes
     //     if(input === '')
     //     {
@@ -171,7 +186,7 @@ emojiToggle.addEventListener("click",function(){
     nextBtn.style.display = "inline";
     searchDoc.value = '';
     emojiStyleReset();
- 
+
 });
 
 emoteToggle.addEventListener("click",function(){

@@ -1,0 +1,25 @@
+body {
+  background-color: #2c2c2c;
+  color: #dcdcdc;
+  font-size: 20px;
+  padding: 20px;
+}
+
+.tab {
+  cursor: pointer;
+  text-align: center;
+  flex: 1;
+}
+
+#all-tabs {
+  display: flex;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+#main-heading-text {
+  width: 100%;
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+}
