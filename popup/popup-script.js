@@ -1,3 +1,8 @@
+//---------------- refresh button code ----------------
+
+const refreshButton = document.querySelector("#refresh-button");
+refreshButton.addEventListener("click", () => browser.runtime.reload());
+
 //---------------- toggle button code ----------------
 
 let toggleChoice = null;
@@ -8,8 +13,6 @@ toggleHistory.then(
     item => {
         const toggleOn = document.querySelector("#toggle-button");
         toggleChoice = item.toggle;
-        // bug here, since the storage area is initially empty, 
-        // the text content changes to turn off even tho it is initially off
         toggleOn.textContent = toggleChoice ? "TURN OFF" : "TURN ON";
         toggleOn.addEventListener("click", function() {
             toggleChoice = !toggleChoice;
@@ -41,17 +44,6 @@ settingButton.addEventListener("click", () => {
     )
 })
 
-
-let docu = document.querySelectorAll("button");
-
-for(let i=0; i<docu.length; i++) {
-    show = function(){
-        navigator.clipboard.writeText(docu[i].textContent);
-    }
-    docu[i].addEventListener('click',show);
-}
-
-let counter = 0;
 const next = document.querySelector("#next");
 const previous = document.querySelector("#previous");
 const pages = document.querySelectorAll(".page");
@@ -79,7 +71,6 @@ function filter()
     let input = searchDoc.value.toLowerCase();
     let emos = document.querySelectorAll(".emoji-button");
     let emotes = document.querySelectorAll(".emote-button");
-
 
     if(emojiTable.style.display === "flex")
     {
