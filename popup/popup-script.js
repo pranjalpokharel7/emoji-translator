@@ -8,6 +8,8 @@ toggleHistory.then(
     item => {
         const toggleOn = document.querySelector("#toggle-button");
         toggleChoice = item.toggle;
+        // bug here, since the storage area is initially empty, 
+        // the text content changes to turn off even tho it is initially off
         toggleOn.textContent = toggleChoice ? "TURN OFF" : "TURN ON";
         toggleOn.addEventListener("click", function() {
             toggleChoice = !toggleChoice;

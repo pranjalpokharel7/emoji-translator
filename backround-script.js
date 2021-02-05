@@ -1,15 +1,17 @@
 'use strict';
 
+const translateScript = {
+  matches: ['*://*.com/*'],
+  js: [{file : "./translate-script.js"}],
+  runAt: "document_idle"
+}
 let registeredScript = null;
 
-async function processToggle(request){
-  console.log(request.toggle);
+// -------------- translate script toggle --------------
+
+async function processChange(request){
   if (request.toggle){
-    registeredScript = await browser.contentScripts.register({
-      matches: ['*://*.com/*'],
-      js: [{file : "./translate-script.js"}],
-      runAt: "document_idle"
-    });
+    registeredScript = await browser.contentScripts.register(translateScript);
   }
   else {
     if (registeredScript){
@@ -18,4 +20,4 @@ async function processToggle(request){
   }
 }
 
-browser.runtime.onMessage.addListener(processToggle);
+browser.runtime.onMessage.addListener(processChange);
