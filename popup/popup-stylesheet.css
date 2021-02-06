@@ -49,9 +49,9 @@ body{
 }
 
 .emote-button{
-  width: 180px;
-  height: 40px;
-  font-size: 12px;
+  width: 200px;
+  height: 50px;
+  font-size: 14px;
 }
 
 .toggle-button#toggle-on{
@@ -104,4 +104,12 @@ button#previous{
 
 #next, #previous {
   width: 12%;
+}
+
+.empty-text {
+  color: #69727b;
+  text-align: center;
+  font-size: 16px;
+  width: 75%;
+  margin: 15% auto;
 }

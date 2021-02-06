@@ -88,6 +88,14 @@ function appendEmojiToDOM(response){
             recentPages[0].append(emojiButton);
         });
     }
+    else {
+        let emptyIndicatorText = document.createElement("div");
+        emptyIndicatorText.innerHTML = "<h3>┻━┻︵ \\(°□°)/ ︵ ┻━┻</h3>" +
+            "Smash some emoji buttons to get some content here!";
+        emptyIndicatorText.classList.add("empty-text");
+
+        recentPages[0].prepend(emptyIndicatorText);
+    }
 
     if (favoriteEmojiCollection) {
         favoriteEmojiCollection.forEach(emoji => {
@@ -98,6 +106,14 @@ function appendEmojiToDOM(response){
 
             favoritePages[0].append(emojiButton);
         });
+    }
+    else {
+        let emptyIndicatorText = document.createElement("div");
+        emptyIndicatorText.innerHTML = "<h3>(*＾ω＾)人(＾ω＾*)</h3>" +
+            "Right click on emoji buttons to add to favorites!"
+        emptyIndicatorText.classList.add("empty-text");
+
+        favoritePages[0].prepend(emptyIndicatorText);
     }
 
     const emojiButtons = document.querySelectorAll(".emoji-button");
