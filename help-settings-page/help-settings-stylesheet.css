@@ -6,9 +6,12 @@ body {
 }
 
 .tab {
+  margin: 2px;
+  border: 3px solid rebeccapurple;
   cursor: pointer;
   text-align: center;
   flex: 1;
+  color: salmon;
 }
 
 #all-tabs {
@@ -22,4 +25,29 @@ body {
   font-weight: bold;
   font-size: 30px;
   text-align: center;
+}
+
+.top-title{
+  color: salmon;
+}
+
+.warning{
+  color: #f02323;
+  font-weight: 200 ;
+}
+.example{
+  color: yellowgreen;
+}
+.user-basic{
+
+}
+
+.input-characters{
+  display: flex;
+  column-gap: 5px;
+
+}
+
+#character-change{
+  
 }

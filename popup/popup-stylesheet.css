@@ -11,6 +11,18 @@ body{
   overflow: hidden;
 }
 
+.title{
+  font-size: xx-large;
+  color: rebeccapurple;
+}
+
+.instruction{
+  padding: 2px;
+  margin: 3px;
+  border: solid 3px rebeccapurple;
+  font: italic;
+}
+
 #emoji-table{
   display: none;
   height: 250px;
