@@ -48,6 +48,7 @@ const next = document.querySelector("#next");
 const previous = document.querySelector("#previous");
 const pages = document.querySelectorAll(".page");
 const lastPage = pages.length;
+let counter = 0;
 
 const pageScroll = (event) => {
     const prevCounter = counter;

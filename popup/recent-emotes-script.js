@@ -85,7 +85,7 @@ function appendEmojiToDOM(response){
             emojiButton.textContent = emoji.value;
             emojiButton.classList.add("emoji-button");
 
-            recentPages[0].append(emojiButton);
+            recentPages[0].prepend(emojiButton);
         });
     }
     else {
