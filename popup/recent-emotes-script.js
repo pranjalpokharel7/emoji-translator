@@ -2,7 +2,7 @@ const recentPages = document.querySelectorAll(".recents-page");
 const favoritePages = document.querySelectorAll(".fab-page");
 
 maxSize = 50; // max number of emoji to be displayed in recent and favorites
-recentEmoji = browser.storage.local.get(["recentEmojiList",
+browser.storage.local.get(["recentEmojiList",
     "favoritesEmojiList"])
     .then(appendEmojiToDOM)
     .catch(error =>  console.log(`Error: ${error}`));
@@ -59,7 +59,7 @@ function addToEmojiQueue(event, emojiObjectCollection){
 function addToFavoritesList(event, emojiObjectCollection){
     event.preventDefault();
 
-    if (event.target.classList.includes("favorite")){
+    if (event.target.classList.contains("favorite")){
         return false;
     }
 

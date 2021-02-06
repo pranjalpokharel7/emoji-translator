@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./help-settings-stylesheet.css">
+    <link rel="stylesheet" href="./favorites-stylesheet.css">
   </head>
   <body>
     <header>
@@ -31,7 +32,16 @@
           <button id="character-change" type="submit">Save</button>
         </form>
         Note: Please reload the extension after changing the characters for the
-        effect to be noticed (turn off/on).
+        effect to be noticed (use the reload button in the popup). 
+        <table class="favorites-emoji-table">
+          <tr class="emoji-row"></tr>
+          <tr class="emoji-row"></tr>
+          <tr class="emoji-row"></tr>
+          <tr class="emoji-row"></tr>
+          <tr class="emoji-row"></tr>
+          <tr class="emoji-row"></tr>
+        </table>
+        <button id="favorites-order-save" type="submit">Save Favorites Order</button>
       </div>
       <div class="page" id="dictionary" style="display:none">
         Here will be the text to emoji translation table
@@ -41,5 +51,6 @@
       </div>
     </main>
     <script src="./help-settings-script.js"></script>
+    <script src="./favorites-table.js"></script>
   </body>
 </html>

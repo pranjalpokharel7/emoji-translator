@@ -1,0 +1,9 @@
+.emoji-row td{
+  border: 1px solid #dcdcdc;
+  padding: 5px;
+  cursor: move;
+}
+
+.swap {
+  background-color: #dcdcdc;
+}
