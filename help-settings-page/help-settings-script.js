@@ -7,6 +7,10 @@ let pages = document.querySelectorAll('.page');
 tabs.forEach( (tab, tabNumber) => tab.addEventListener('click', () => {
   pages[activeTab].style.display = "none";
   pages[tabNumber].style.display = "block";
+
+  tabs[activeTab].classList.remove("selected-tab");
+  tabs[tabNumber].classList.add("selected-tab");
+
   activeTab = tabNumber;
 }));
 

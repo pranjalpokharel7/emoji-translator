@@ -1,5 +1,6 @@
 const emojiRow = document.querySelectorAll(".emoji-row");
 const saveButton = document.querySelector("#favorites-order-save");
+const favoritesStatusText = document.querySelector("#favorites-status-text");
 
 browser.storage.local.get("favoritesEmojiList")
   .then(loadEmojisToTable)
@@ -9,9 +10,14 @@ function loadEmojisToTable(response){
   let favoritesEmojiList = response.favoritesEmojiList; 
 
   if (!favoritesEmojiList){
+    // do not display the button if the user has no favorites yet
+    saveButton.style.display = "none";
     return;
   }
-
+  
+  favoritesStatusText.textContent = "Drag and drop to arrange the order" +
+    " in which the favorite emojis will be displayed.";
+  saveButton.style.display = "block";
   emojiRow.forEach(tableRow => {
     let emojiGroup = favoritesEmojiList.splice(0, 6);
     emojiGroup.forEach(emoji => {

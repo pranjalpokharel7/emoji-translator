@@ -6,12 +6,17 @@ body {
 }
 
 .tab {
-  margin: 2px;
-  border: 3px solid rebeccapurple;
+  margin: 10px;
+  padding: 8px;
   cursor: pointer;
   text-align: center;
   flex: 1;
   color: salmon;
+}
+
+.selected-tab{
+  border-bottom: 1px solid salmon;
+  color: white;
 }
 
 #all-tabs {
@@ -31,23 +36,7 @@ body {
   color: salmon;
 }
 
-.warning{
-  color: #f02323;
-  font-weight: 200 ;
-}
 .example{
   color: yellowgreen;
 }
-.user-basic{
 
-}
-
-.input-characters{
-  display: flex;
-  column-gap: 5px;
-
-}
-
-#character-change{
-  
-}

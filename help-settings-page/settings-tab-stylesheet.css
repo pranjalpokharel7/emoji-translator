@@ -1,0 +1,47 @@
+#settings-page {
+  padding: 10px;
+}
+
+.emoji-row td{
+  background-color: #272727;
+  padding: 15px;
+  cursor: move;
+}
+
+.swap {
+  background-color: #dcdcdc;
+}
+
+.warning{
+  font-weight: bold;
+}
+
+.sub-header {
+  display: block; 
+  font-weight: bold;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.input-characters{
+  column-gap: 5px;
+}
+
+.save-button {
+  background-color: #212121;
+  color: #dcdcdc;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.save-button:hover {
+  background-color: #232323;
+  cursor: pointer;
+}
+
+.save-button:active {
+  background-color: #252525;
+  cursor: pointer;
+  border: 1px solid #dcdcdc;
+}

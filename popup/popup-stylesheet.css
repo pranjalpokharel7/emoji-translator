@@ -12,8 +12,12 @@ body{
 }
 
 .title{
-  font-size: xx-large;
+  font-size: 28px;
   color: rebeccapurple;
+  text-align: center;
+  font-weight: bold;
+  padding: 5px;
+  margin-top: -5px;
 }
 
 .instruction{
@@ -124,4 +128,10 @@ button#previous{
   font-size: 16px;
   width: 75%;
   margin: 15% auto;
+}
+
+.horizontal-line {
+  height: 2px;
+  background-color: rebeccapurple;
+  margin: 10px auto;
 }

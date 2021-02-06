@@ -3,20 +3,20 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./help-settings-stylesheet.css">
-    <link rel="stylesheet" href="./favorites-stylesheet.css">
+    <link rel="stylesheet" href="./settings-tab-stylesheet.css">
   </head>
   <body>
     <header>
       <p id="main-heading-text">
         <span class="top-title">Emoji Translator</span>
         <div class = 'user-basic'>
-            You can translate text into emoji using this addon. By default typing the emoji name specified on the 'dictionary'
-            tab in between ':' i.e <span class="example">:heart: to ❤️</span>. You can change the starting and end character to whatever you find convenient.
-            Also the order of apperance of favourites emoji icons can be changed in the 'settings' tab through simple drag and drop.
+          You can translate text into emoji using this addon. By default typing the emoji name specified on the 'dictionary'
+          tab in between ':' i.e <span class="example">:heart: to ❤️</span>. You can change the starting and end character to whatever you find convenient.
+          Also the order of apperance of favourites emoji icons can be changed in the 'settings' tab through simple drag and drop.
         </div>
       </p>
       <div id = "all-tabs">
-        <span class="tab" id="settings">Settings</span>
+        <span class="tab selected-tab" id="settings">Settings</span>
         <span class="tab" id="dictionary">Dictionary</span>
         <span class="tab" id="about">About</span>
       </div>
@@ -25,22 +25,30 @@
       <div class="page" id="settings-page">
         <form class="input-characters">
           <p>
-            <span class="">Start and End characters</span><br>
+            <span class = "sub-header">Start and End characters</span><br>
             <!-- <label for="lead-ch">Starting Character</label> -->
             <input type="text" id="lead-ch" maxlength="1" name="lead-ch"
-              size="1">
+                                                          size="1">
             <em> Emoji-Unicode </em> 
             <input type="text" id="end-ch" maxlength="1" name="end-ch"
-              size="1">
+                                                         size="1">
             <!-- <label for="end-ch">Closing Character</label> -->
           </p>
+          <button class="save-button" id="character-change" 
+            type="submit">Save</button>
         </form>
-        <button id="character-change" type="submit">Save</button>
-
-        <div class="favs-table">
-          </em><span class="warning">Note:</span><em>
+        <p id="#note">
+          <span class="warning">Note:</span>
           Please reload the extension after changing the characters for the
-          effect to be noticed (use the reload button in the popup).</em> 
+          effect to be noticed (use the reload button in the popup).
+        </p>
+        <div class="favs-table">
+          <span class = "sub-header">Favorites Emoji List</span><br>
+          <span id = "favorites-status-text">
+            Content will appear hear after you have selected some emojis
+            to be added as favorite. To add an emoji to favorites, simply
+            right click on it on the popup menu.
+          </span>
           <table class="favorites-emoji-table">
             <tr class="emoji-row"></tr>
             <tr class="emoji-row"></tr>
@@ -49,12 +57,14 @@
             <tr class="emoji-row"></tr>
             <tr class="emoji-row"></tr>
           </table>
-      </div>
-        <button id="favorites-order-save" type="submit">Save Favorites Order</button>
+          <button class="save-button" id="favorites-order-save" type="submit">
+            Save Favorites Order
+          </button>
+        </div>
       </div>
       <div class="page" id="dictionary" style="display:none">
         Here will be the text to emoji translation table.
-        
+
       </div>
       <div class="page" id="about" style="display:none">
         This is an emoji keyboard addon for browsers.
