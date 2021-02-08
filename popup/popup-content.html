@@ -9,13 +9,18 @@
 
   <body> 
     <div id="popup-content">
-      <div class='title'>Emotalks</div>
+    <div class='title'><!--left empty for now --></div>
       <div id = 'control'>
         <button class="control-button" id="toggle-button">TURN ON</button>
         <button class="control-button" id="settings-button">
           HELP/SETTINGS</button>
         <button class="control-button" id="refresh-button">REFRESH</button>
       </div>
+
+      <div id= "search-bar">
+        <input id="search" type = "text" placeholder="Search...">
+      </div>
+
       <div class = "horizontal-line" style="width: 95%"></div>
 
       <div class = "type-toggle">
@@ -25,13 +30,16 @@
         <span class="tab" id = "emote-toggle">Emotes</span>
       </div>
 
-      <div class = "search-bar">
-        <input class ="search" type = "text" placeholder="Search...">
+      <div id="navigation">
         <button id = "previous">❮</button>
         <button id = "next">❯</button>
       </div>
 
       <div class = "outer-table">
+
+        <div id="search-results-page">
+        </div>
+
         <div class="tab-page" id = "recents-table">
           <div class = "recents-page">
           </div>

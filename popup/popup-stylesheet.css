@@ -56,7 +56,7 @@ body{
 /* style for recent/fvorites/emoji/emotes tab headers */
 
 .type-toggle{
-  margin-bottom: 10px;
+  margin: 10px 0px;
   display: flex;
 }
 
@@ -73,13 +73,21 @@ body{
   display: none;
   height: 250px;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: left;
   margin-top: 15px;
   overflow-y: scroll;
 }
 
 #recents-table{
   display: flex;
+}
+
+#search-results-page {
+  display: none;
+  margin-top: 15px;
+  flex-wrap: wrap;
+  justify-content: left;
+  overflow-y: scroll;
 }
 
 /* style for text to be displayed when tab-page is empty*/
@@ -135,27 +143,30 @@ body{
 }
 
 #search-bar{
-  display: none;
-  flex-grow: nowrap;
-  justify-content: space-between;
+  margin: 10px 10px;
 }
 
-.search, #next, #previous {
-  height: 30px;
-  display: none;
-  background-color: inherit;
+#navigation {
+  display: flex;
+  flex-wrap: none;
+  justify-content: space-around;
+}
+
+#search, #next, #previous {
+  background-color: #212121;
   color: inherit;
   border: 1px solid black;
   border-radius: 5px;
 }
 
 #next, #previous{
-  width: 40px;
+  height: 35px;
+  width: 40%;
 }
 
-.search {
+#search {
+  height: 30px;
   margin: 0px 2px;
-  width: 75%;
   padding-left: 7px;
 }
 
