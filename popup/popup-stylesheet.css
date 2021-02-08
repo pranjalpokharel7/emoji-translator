@@ -1,73 +1,125 @@
-html{
+html, body{
   width: 420px;
   height: 450px;
 }
 
 body{
-  width: 420px;
-  height: 450px;
   padding: 2px;
-  background-color:whitesmoke;
+  background-color: #2c2c2c;
+  color: #dcdcdc;
   overflow: hidden;
+  font-size: 17px;
 }
 
+/* style for title heading*/
+
 .title{
-  font-size: 28px;
-  color: rebeccapurple;
+  font-size: 25px;
+  color: salmon;
   text-align: center;
   font-weight: bold;
   padding: 5px;
-  margin-top: -5px;
 }
 
-.instruction{
-  padding: 2px;
-  margin: 3px;
-  border: solid 3px rebeccapurple;
-  font: italic;
-}
+/* control button */
 
-#emoji-table{
-  display: none;
-  height: 250px;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin-top: 15px;
-  overflow-y: scroll;
-}
-
-#emoticon-table{
-  display: none;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  height: 250px;
-  margin-top: 15px;
-  overflow-y: scroll;
-}
-
-#fab-table{
-  display: none;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  height: 250px;
-  margin-top: 15px;
-  overflow-y: scroll;
-}
-
-#recents-table
-{
+#control {
   display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  margin: 5px;
+}
+
+.control-button {
+  flex: 1;
+  cursor: pointer;
+  background-color: #f76d43;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin: 0px 5px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.control-button:hover {
+  background-color: #f86133;
+  cursor: pointer;
+}
+
+.control-button:active {
+  cursor: pointer;
+  transform: scale(0.98);
+}
+
+
+/* style for recent/fvorites/emoji/emotes tab headers */
+
+.type-toggle{
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.tab {
+  cursor: pointer;
+  text-align: center;
+  flex: 1;
+  color: salmon;
+}
+
+/* style for emoji table */
+
+.tab-page{
+  display: none;
+  height: 250px;
   flex-wrap: wrap;
   justify-content: space-around;
-  height: 250px;
   margin-top: 15px;
   overflow-y: scroll;
+}
+
+#recents-table{
+  display: flex;
+}
+
+/* style for text to be displayed when tab-page is empty*/
+
+.empty-text {
+  color: #69727b;
+  text-align: center;
+  font-size: 16px;
+  width: 75%;
+  margin: 15% auto;
+}
+
+/* style for emoji/emotes buttons*/
+
+.emote-button, .emoji-button {
+  height: 50px;
+  cursor: pointer;
+  background-color: #212121;
+  border: 1px solid #000;
+}
+
+.emoji-button{
+  font-size: 20px;
+  width: 64px;
+  padding: 5px;
 }
 
 .emote-button{
-  width: 200px;
-  height: 50px;
   font-size: 14px;
+  width: 200px;
+  color: inherit;
+}
+
+.emote-button:hover, .emoji-button:hover {
+  background-color: #2e2e2e;
+}
+
+.emoji-button:active, .emoji-button:active {
+  background-color: #3e3e3e;
+  transform: scale(0.95);
 }
 
 .toggle-button#toggle-on{
@@ -82,56 +134,33 @@ body{
   display: block;
 }
 
-.type-toggle{
-  display: inline;
-}
-
-.emoji-button{
-  font-size: 20px;
-  cursor: pointer;
-  padding: 5px;
-  min-width: 50px;
-  min-height: 50px;
-}
-
-button#next{
-  display:none;
-  min-width: 30px;
-  padding: 3px;
-}
-
-button#previous{
-  display: none;
-  min-width: 30px;
-  padding: 3px;
-}
-
 #search-bar{
   display: none;
   flex-grow: nowrap;
   justify-content: space-between;
-  margin-top: 10px;
+}
+
+.search, #next, #previous {
+  height: 30px;
+  display: none;
+  background-color: inherit;
+  color: inherit;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+#next, #previous{
+  width: 40px;
 }
 
 .search {
-  width: 67%;
-  display: none;
-}
-
-#next, #previous {
-  width: 12%;
-}
-
-.empty-text {
-  color: #69727b;
-  text-align: center;
-  font-size: 16px;
+  margin: 0px 2px;
   width: 75%;
-  margin: 15% auto;
+  padding-left: 7px;
 }
 
 .horizontal-line {
   height: 2px;
-  background-color: rebeccapurple;
+  background-color: salmon;
   margin: 10px auto;
 }

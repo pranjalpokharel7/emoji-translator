@@ -3,23 +3,26 @@
 <html lang="en-US">
   <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../normalize.css"/>
     <link rel="stylesheet" href="./popup-stylesheet.css"/>
   </head>
 
-  <body>
+  <body> 
     <div id="popup-content">
       <div class='title'>Emotalks</div>
-      <div>
-        <button id="toggle-button">TURN ON</button>
-        <button id="settings-button">HELP/SETTINGS</button>
-        <button id="refresh-button">REFRESH</button>
+      <div id = 'control'>
+        <button class="control-button" id="toggle-button">TURN ON</button>
+        <button class="control-button" id="settings-button">
+          HELP/SETTINGS</button>
+        <button class="control-button" id="refresh-button">REFRESH</button>
       </div>
-      <div class = "horizontal-line" style="width: 70%"></div>
+      <div class = "horizontal-line" style="width: 95%"></div>
+
       <div class = "type-toggle">
-        <button id = "recents">Recents</button>
-        <button id = "favorites">Favorites</button>
-        <button id = "emoji-toggle">Emoji</button>
-        <button id = "emote-toggle">Emotes</button>
+        <span class="tab" id = "recents">Recents</span>
+        <span class="tab" id = "favorites">Favorites</span>
+        <span class="tab" id = "emoji-toggle">Emoji</span>
+        <span class="tab" id = "emote-toggle">Emotes</span>
       </div>
 
       <div class = "search-bar">
@@ -29,17 +32,17 @@
       </div>
 
       <div class = "outer-table">
-        <div id = "recents-table">
+        <div class="tab-page" id = "recents-table">
           <div class = "recents-page">
           </div>
         </div>
 
-        <div id = "fab-table">
+        <div class="tab-page" id = "fab-table">
           <div class = "fab-page">
           </div>
         </div>
 
-        <div id = "emoticon-table">
+        <div class="tab-page" id = "emoticon-table">
           <!-- search bar inside emoticon -->
           <div class = 'emote-page'>
             <button class = 'emote-button' id = 'happy-joy-0'>(* ^ ω ^)</button>
@@ -291,7 +294,7 @@
             <button class = 'emote-button' id = 'enemy-13'>(╯°Д°)╯︵ /(.□ . ＼)</button>
             <button class = 'emote-button' id = 'enemy-14'>(¬_¬'')ԅ(￣ε￣ԅ)</button>
             <button class = 'emote-button' id = 'enemy-15'>/( .□.)＼ ︵╰(°益°)╯︵ /(.□. /)</button>
-            <button class = 'emote-button' id = 'enemy-16'>(ﾉ-.-)ﾉ….((((((((((((●~* ( >_&lt;)</button>
+            <button class = 'emote-button' id = 'enemy-16'>(ﾉ-.-)ﾉ….((((((((((((●~* ( &gt;_&lt;)</button>
             <button class = 'emote-button' id = 'enemy-17'>!!(ﾒ￣ ￣)_θ☆°0°)/</button>
             <button class = 'emote-button' id = 'enemy-18'>(`⌒*)O-(`⌒´Q)</button>
             <button class = 'emote-button' id = 'enemy-19'>(((ง’ω’)و三 ง’ω’)ڡ≡　☆⌒ﾐ((x_x)</button>
@@ -787,14 +790,7 @@
             <button class = 'emote-button' id = 'others-lying-25'>∠( ᐛ 」∠)_</button>
           </div>
         </div>
-        <div id = "emoji-table">
-
-          <!-- <div class = "search-bar">
-            <input class ="search" type = "text" placeholder="Search...">
-            <button id = "previous">❮</button>
-            <button id = "next">❯</button>
-            </div> -->
-
+        <div class="tab-page" id = "emoji-table">
             <div class = 'page smileys-and-emotion'>
               <button class = 'emoji-button' id = ':joy:'>😂</button>
               <button class = 'emoji-button' id = ':heart:'>❤️</button>

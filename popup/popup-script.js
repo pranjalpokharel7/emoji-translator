@@ -155,6 +155,8 @@ function emoteStyleReset()
 let searchDoc = document.querySelector(".search");
 searchDoc.addEventListener("keyup", filter);
 
+// the toggle buttons code are redundant, refactoring needed
+
 //buttons
 let previousBtn = document.querySelector("#previous");
 let nextBtn = document.querySelector("#next");

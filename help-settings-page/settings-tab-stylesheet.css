@@ -27,8 +27,8 @@
 }
 
 .save-button {
-  background-color: #212121;
-  color: #dcdcdc;
+  background-color: #f76d43;
+  color: #fff;
   border: none;
   border-radius: 5px;
   padding: 10px;
@@ -36,12 +36,11 @@
 }
 
 .save-button:hover {
-  background-color: #232323;
+  background-color: #f86133;
   cursor: pointer;
 }
 
 .save-button:active {
-  background-color: #252525;
   cursor: pointer;
   border: 1px solid #dcdcdc;
 }
