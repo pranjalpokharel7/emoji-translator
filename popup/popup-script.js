@@ -41,7 +41,7 @@ settingButton.addEventListener("click", () => {
 })
 
 //---------------- page navigation ----------------
-// also needs refactoring and optimization 
+// might need refactoring and optimization, inside pageScroll, the 2 if-blocks
 
 const nextButton = document.querySelector("#next");
 const previousButton = document.querySelector("#previous");
@@ -88,18 +88,18 @@ const tabPages = document.querySelectorAll('.tab-page');
 const allEmojis = Array.from(document.querySelectorAll(".emoji-button"));
 const allEmotes = Array.from(document.querySelectorAll(".emote-button"));
 
-function filterEmojis(event, searchChoice)
-{
+function filterEmojis(event, searchChoice){
     let input = searchDoc.value.toLowerCase();
+    emojiStyleReset();
+
     if (input == ""){
-        emojiStyleReset();
         searchPage.style.display = "none";
-        recentsTable.style.display = "flex";
+        allTabPages[0].style.display = "flex"; // defined below
         return;
     }
 
     tabPages.forEach(tabPage => tabPage.style.display = "none");
-    searchPage.style.display = "flex";
+    searchPage.style.display = "block";
     let searchResults = new Set();
     let searchCollection = allEmojis;
 
@@ -108,16 +108,13 @@ function filterEmojis(event, searchChoice)
     }
 
     searchCollection.forEach(emoji => {
-        let emojiName = emoji.id.substring(1, emoji.id.length);
-        if (emojiName.indexOf(input) > -1)
+        if (emoji.id.indexOf(input) > -1)
             searchResults.add(emoji);
     });
-    emojiStyleReset();
     searchResults.forEach(buttonNode => searchPage.append(buttonNode));
 }
 
-function emojiStyleReset()
-{
+function emojiStyleReset(){
     searchPage.innerHTML = "";
 }
 
@@ -131,68 +128,24 @@ browser.storage.local.get("searchChoice")
     .then(addSearchEvent)
     .catch(error => console.log(`Error: ${error}`));
 
-// the code below needs refactoring and redundancy check
+//---------------- tab change ----------------
 
-//buttons
-let emojiToggle = document.querySelector("#emoji-toggle");
-let emoteToggle = document.querySelector("#emote-toggle");
-let favoritesButton = document.querySelector("#favorites");
-let recentsButton = document.querySelector("#recents");
-
-//tables
-let emojiTable = document.querySelector("#emoji-table");
-let emoteTable = document.querySelector("#emoticon-table");
-let favoritesTable = document.querySelector("#fab-table");
-let recentsTable = document.querySelector("#recents-table");
-
+const tabChangeButtons = document.querySelectorAll(".tab");
+const allTabPages = document.querySelectorAll(".tab-page");
 let isEmojiTabOpen = false;
 let isEmoteTabOpen = false;
 
-//---------------- tab change ----------------
+tabChangeButtons.forEach((tabButton, buttonIndex) => 
+    tabButton.addEventListener("click",event => toggleTabs(event, buttonIndex))
+);
 
-emojiToggle.addEventListener("click",function(){
-    emoteTable.style.display = "none";
-    favoritesTable.style.display = "none";
-    recentsTable.style.display = "none";
-    emojiTable.style.display = "flex";
+function toggleTabs(event, index){
+    allTabPages.forEach(tabPage => tabPage.style.display = "none");
+    allTabPages[index].style.display = "flex";
 
-    isEmojiTabOpen = true;
-    isEmoteTabOpen = false;
-});
+    tabChangeButtons.forEach(tab => tab.classList.remove("selected-tab"));
+    event.target.classList.add("selected-tab");
 
-emoteToggle.addEventListener("click",function(){
-    emojiTable.style.display = "none";
-    favoritesTable.style.display = "none";
-    recentsTable.style.display = "none";
-    emoteTable.style.display = "flex";
-
-    isEmojiTabOpen = false;
-    isEmoteTabOpen = true;
-});
-
-favoritesButton.addEventListener("click",function(){
-    emojiTable.style.display = "none";
-    emoteTable.style.display = "none";
-    recentsTable.style.display = "none";
-    favoritesTable.style.display = "flex";
-
-    isEmojiTabOpen = false;
-    isEmoteTabOpen = false;
-});
-
-recentsButton.addEventListener("click",function(){
-    emojiTable.style.display = "none";
-    emoteTable.style.display = "none";
-    favoritesTable.style.display = "none";
-    recentsTable.style.display = "flex";
-
-    isEmojiTabOpen = false;
-    isEmoteTabOpen = false;
-});
-
-
-//TODO
-//replace buttons with icons preferably color changable icons to say where user is at
-//if searchdoc. value == 0 whether then display normal
-// else if something is entered trigger filter
-//check where the search is being done emoji table or emote table before filtering
+    isEmojiTabOpen = index == 2 ? true : false;
+    isEmoteTabOpen = index == 3 ? true : false;
+}
