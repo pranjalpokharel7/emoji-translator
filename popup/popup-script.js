@@ -86,8 +86,9 @@ previousButton.addEventListener("click", pageScroll);
 const searchPage = document.querySelector('#search-results-page');
 const tabPages = document.querySelectorAll('.tab-page');
 const allEmojis = Array.from(document.querySelectorAll(".emoji-button"));
+const allEmotes = Array.from(document.querySelectorAll(".emote-button"));
 
-function filterEmojis()
+function filterEmojis(event, searchChoice)
 {
     let input = searchDoc.value.toLowerCase();
     if (input == ""){
@@ -100,8 +101,13 @@ function filterEmojis()
     tabPages.forEach(tabPage => tabPage.style.display = "none");
     searchPage.style.display = "flex";
     let searchResults = new Set();
+    let searchCollection = allEmojis;
 
-    allEmojis.forEach(emoji => {
+    if (searchChoice == "default-emote-search"){
+        searchCollection = allEmotes;
+    }
+
+    searchCollection.forEach(emoji => {
         let emojiName = emoji.id.substring(1, emoji.id.length);
         if (emojiName.indexOf(input) > -1)
             searchResults.add(emoji);
@@ -115,8 +121,15 @@ function emojiStyleReset()
     searchPage.innerHTML = "";
 }
 
+function addSearchEvent(response){
+    searchDoc.addEventListener("keyup", 
+        event => filterEmojis(event, response.searchChoice));
+}
+
 let searchDoc = document.querySelector("#search");
-searchDoc.addEventListener("keyup", filterEmojis);
+browser.storage.local.get("searchChoice")
+    .then(addSearchEvent)
+    .catch(error => console.log(`Error: ${error}`));
 
 // the code below needs refactoring and redundancy check
 

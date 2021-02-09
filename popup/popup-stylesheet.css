@@ -69,7 +69,7 @@ body{
 
 /* style for emoji table */
 
-.tab-page{
+.tab-page, #search-results-page{
   display: none;
   height: 250px;
   flex-wrap: wrap;
@@ -80,14 +80,6 @@ body{
 
 #recents-table{
   display: flex;
-}
-
-#search-results-page {
-  display: none;
-  margin-top: 15px;
-  flex-wrap: wrap;
-  justify-content: left;
-  overflow-y: scroll;
 }
 
 /* style for text to be displayed when tab-page is empty*/

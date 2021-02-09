@@ -1,8 +1,8 @@
 // ---------------- tab changing ---------------- 
 
 let activeTab = 0;
-let tabs = document.querySelectorAll('.tab');
-let pages = document.querySelectorAll('.page');
+const tabs = document.querySelectorAll('.tab');
+const pages = document.querySelectorAll('.page');
 
 tabs.forEach( (tab, tabNumber) => tab.addEventListener('click', () => {
   pages[activeTab].style.display = "none";
@@ -16,9 +16,9 @@ tabs.forEach( (tab, tabNumber) => tab.addEventListener('click', () => {
 
 // ---------------- starting and ending character change ---------------- 
 
-let characterChangeButton = document.querySelector('#character-change');
-let leadCharacterInput = document.querySelector('#lead-ch')
-let endCharacterInput = document.querySelector('#end-ch')
+const characterChangeButton = document.querySelector('#character-change');
+const leadCharacterInput = document.querySelector('#lead-ch')
+const endCharacterInput = document.querySelector('#end-ch')
 
 characterChangeButton.addEventListener('click', () => {
   if (leadCharacterInput.value.trim() && endCharacterInput.value.trim()){
@@ -26,7 +26,19 @@ characterChangeButton.addEventListener('click', () => {
       leadCharacter : leadCharacterInput.value, 
       endCharacter : endCharacterInput.value,
     }) 
-    console.log("Characters changed!");
   }
 });
 
+// ---------------- search preference change ---------------- 
+const defaultSearchOptions = document.getElementsByName('default-search');
+const searchChoiceSaveButton = document.querySelector('#search-preference-save');
+
+searchChoiceSaveButton.addEventListener("click", () =>  {
+  defaultSearchOptions.forEach(option => {
+    if (option.checked){
+      browser.storage.local.set({
+        "searchChoice" : option.value,
+      });
+    }  
+  }); 
+});
