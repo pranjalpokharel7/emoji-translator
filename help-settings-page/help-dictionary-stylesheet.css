@@ -8,7 +8,10 @@ body{
     margin: 0;
     padding: 2em;
 }
+
 table {
+    margin-top: 10px;
+    margin-left: 2px;
     text-align: left;
     /* position: relative; */
     border-collapse: collapse; 
