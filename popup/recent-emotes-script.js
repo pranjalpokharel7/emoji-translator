@@ -7,10 +7,12 @@ browser.storage.local.get(["recentEmojiList",
     .then(appendEmojiToDOM)
     .catch(error =>  console.log(`Error: ${error}`));
 
-// function as object constructor
-function EmojiObject(id, value){
-    this.id = id;
-    this.value = value;
+// object constructor
+class EmojiObject{
+    constructor(id, value){
+        this.id = id;
+        this.value = value;
+    }
 }
 
 function addEmoji(latestEmoji, emojiObjectCollection, isRecentEmoji) {
@@ -60,17 +62,24 @@ function addToFavoritesList(event, emojiObjectCollection){
     event.preventDefault();
 
     if (event.target.classList.contains("favorite")){
-        return false;
+        // if right-click on favourite emoji, remove it
+        emojiObjectCollection = emojiObjectCollection.filter(emoji => {
+            if (event.target.id == emoji.id) return false;    
+            return true;
+        });
+        event.target.remove(); 
+    }
+    else {
+        let latestEmoji = new EmojiObject(
+            event.target.id, 
+            event.target.textContent
+        );
+        emojiObjectCollection = addEmoji(latestEmoji, emojiObjectCollection,false);
     }
 
-    let latestEmoji = new EmojiObject(
-        event.target.id, 
-        event.target.textContent
-    );
-    emojiObjectCollection = addEmoji(latestEmoji, emojiObjectCollection,false);
     browser.storage.local.set({
         "favoritesEmojiList" : emojiObjectCollection, 
-    })
+    });
     return false;
 }
 
