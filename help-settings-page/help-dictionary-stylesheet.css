@@ -8,12 +8,39 @@ body{
     margin: 0;
     padding: 2em;
 }
+ 
+.translation-x-help{
+  padding: 3px;
+  margin-top: 3px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.help-note{
+  flex-basis: 350px;
+}
+
+.help-note-header{
+  padding: 0.25rem;
+  background-color: #202020;
+  border-radius: 5px;
+  color: salmon;
+  font-size: x-large;
+  position: sticky;
+  top: 0;
+}
+.help-text{
+  position: sticky;
+  background-color:#252525 ;
+  border-radius: 5px;
+  padding: 0.25rem;
+  top: 2rem;
+}
 
 table {
     margin-top: 10px;
     margin-left: 2px;
     text-align: left;
-    /* position: relative; */
     border-collapse: collapse; 
     column-gap: 2px;
   }
@@ -24,6 +51,7 @@ table {
 
   tr th {
     background: #202020;
+    border-radius: 5px;
     color: salmon;
     font-size: x-large;
 

@@ -2,7 +2,7 @@ body {
   background-color: #2c2c2c;
   color: #dcdcdc;
   font-size: 20px;
-  padding: 20px;
+  padding: 10px 20px;
 }
 
 .tab {
@@ -30,6 +30,7 @@ body {
   font-weight: bold;
   font-size: 30px;
   text-align: center;
+  margin-top: 0;
 }
 
 .top-title{
