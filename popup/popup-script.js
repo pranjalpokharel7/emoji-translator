@@ -3,7 +3,7 @@
 const refreshButton = document.querySelector("#refresh-button");
 refreshButton.addEventListener("click", () => browser.runtime.reload());
 
-//---------------- toggle button code ----------------
+//---------------- toggle button (turn on/off) code ----------------
 
 let toggleChoice = null;
 let choiceSelected = null;
@@ -32,39 +32,56 @@ toggleHistory.then(
 
 //---------------- settings page ----------------
 
-let settingPage = {
+const settingPage = {
     url: '../help-settings-page/help-settings-content.html',
 }
-let settingButton = document.querySelector('#settings-button');
+const settingButton = document.querySelector('#settings-button');
 settingButton.addEventListener("click", () => {
-    let tabCreation = browser.windows.create(settingPage);
-    tabCreation.then(
-        () => console.log("Settings Page Opened"),
-        () => console.log(`Errror in opning settings page: ${error}`)
-    )
+    browser.windows.create(settingPage);
 })
 
-const next = document.querySelector("#next");
-const previous = document.querySelector("#previous");
-const pages = document.querySelectorAll(".page");
-const lastPage = pages.length;
-let counter = 0;
+//---------------- page navigation ----------------
+// also needs refactoring and optimization 
+
+const nextButton = document.querySelector("#next");
+const previousButton = document.querySelector("#previous");
+
+let emojiCounter = 0;
+const emojiPages = document.querySelectorAll(".emoji-page");
+const lastEmojiPage = emojiPages.length;
+
+let emoteCounter = 0;
+const emotePages = document.querySelectorAll(".emote-page");
+const lastEmotePage = emotePages.length;
 
 const pageScroll = (event) => {
-    const prevCounter = counter;
-    const currentPage = event.target;
+    const navigationButton = event.target;
 
-    if (currentPage.id === "previous")
-        counter = counter === 0 ? lastPage-1 : counter - 1;
-    else
-        counter = (counter + 1) % lastPage;
+    if (isEmojiTabOpen){
+        const prevCounter = emojiCounter;
+        if (navigationButton.id === "previous")
+            emojiCounter = emojiCounter === 0 ? lastEmojiPage-1:emojiCounter-1;
+        else
+            emojiCounter = (emojiCounter + 1) % lastEmojiPage;
+        emojiPages[emojiCounter].style.display = "block";
+        emojiPages[prevCounter].style.display = "none";
+    }
 
-    pages[counter].style.display = "block";
-    pages[prevCounter].style.display = "none";
+    if (isEmoteTabOpen) {
+        const prevCounter = emoteCounter;
+        if (navigationButton.id === "previous")
+            emoteCounter = emoteCounter === 0 ? lastEmotePage-1:emoteCounter-1;
+        else
+            emoteCounter = (emoteCounter + 1) % lastEmotePage;
+        emotePages[emoteCounter].style.display = "block";
+        emotePages[prevCounter].style.display = "none";
+    }
 }
 
-next.addEventListener("click", pageScroll); 
-previous.addEventListener("click", pageScroll); 
+nextButton.addEventListener("click", pageScroll); 
+previousButton.addEventListener("click", pageScroll); 
+
+//---------------- search result ----------------
 
 const searchPage = document.querySelector('#search-results-page');
 const tabPages = document.querySelectorAll('.tab-page');
@@ -101,11 +118,9 @@ function emojiStyleReset()
 let searchDoc = document.querySelector("#search");
 searchDoc.addEventListener("keyup", filterEmojis);
 
-// the toggle buttons code are redundant, refactoring needed
+// the code below needs refactoring and redundancy check
 
 //buttons
-let previousBtn = document.querySelector("#previous");
-let nextBtn = document.querySelector("#next");
 let emojiToggle = document.querySelector("#emoji-toggle");
 let emoteToggle = document.querySelector("#emote-toggle");
 let favoritesButton = document.querySelector("#favorites");
@@ -117,11 +132,19 @@ let emoteTable = document.querySelector("#emoticon-table");
 let favoritesTable = document.querySelector("#fab-table");
 let recentsTable = document.querySelector("#recents-table");
 
+let isEmojiTabOpen = false;
+let isEmoteTabOpen = false;
+
+//---------------- tab change ----------------
+
 emojiToggle.addEventListener("click",function(){
     emoteTable.style.display = "none";
     favoritesTable.style.display = "none";
     recentsTable.style.display = "none";
     emojiTable.style.display = "flex";
+
+    isEmojiTabOpen = true;
+    isEmoteTabOpen = false;
 });
 
 emoteToggle.addEventListener("click",function(){
@@ -129,6 +152,9 @@ emoteToggle.addEventListener("click",function(){
     favoritesTable.style.display = "none";
     recentsTable.style.display = "none";
     emoteTable.style.display = "flex";
+
+    isEmojiTabOpen = false;
+    isEmoteTabOpen = true;
 });
 
 favoritesButton.addEventListener("click",function(){
@@ -136,6 +162,9 @@ favoritesButton.addEventListener("click",function(){
     emoteTable.style.display = "none";
     recentsTable.style.display = "none";
     favoritesTable.style.display = "flex";
+
+    isEmojiTabOpen = false;
+    isEmoteTabOpen = false;
 });
 
 recentsButton.addEventListener("click",function(){
@@ -143,6 +172,9 @@ recentsButton.addEventListener("click",function(){
     emoteTable.style.display = "none";
     favoritesTable.style.display = "none";
     recentsTable.style.display = "flex";
+
+    isEmojiTabOpen = false;
+    isEmoteTabOpen = false;
 });
 
 
