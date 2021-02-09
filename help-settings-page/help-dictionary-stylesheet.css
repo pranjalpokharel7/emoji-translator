@@ -1,0 +1,36 @@
+/* html{
+    padding: 10px;
+    border: solid 2px salmon;
+    background-color: #2c2c2c;
+} */
+body{
+    color: whitesmoke;
+    margin: 0;
+    padding: 2em;
+}
+table {
+    text-align: left;
+    /* position: relative; */
+    border-collapse: collapse; 
+    column-gap: 2px;
+  }
+
+  th, td {
+    padding: 0.25rem;
+  }
+
+  tr th {
+    background: #202020;
+    color: salmon;
+    font-size: x-large;
+
+  }
+
+  th {
+    background: #2c2c2c;
+    position: sticky;
+    top: 0; 
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+  }
+  
+  
