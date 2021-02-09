@@ -27,7 +27,7 @@
       <div class="page" id="settings-page">
         <form class="input-characters">
           <p>
-            <span class = "sub-header">Start and End characters</span><br>
+            <h4 class = "sub-header">Start and End Characters</h4>
             <!-- <label for="lead-ch">Starting Character</label> -->
             <input type="text" id="lead-ch" maxlength="1" name="lead-ch"
                                                           size="1">
@@ -36,8 +36,9 @@
                                                          size="1">
             <!-- <label for="end-ch">Closing Character</label> -->
           </p>
-          <button class="save-button" id="character-change" 
-            type="submit">Save</button>
+          <button class="save-button" 
+                  id="character-change" 
+                  type="submit">Save Translation Pattern</button>
         </form>
         <p id="#note">
           <span class="warning">Note:</span>
@@ -45,7 +46,7 @@
           effect to be noticed (use the reload button in the popup).
         </p>
         <div class="favs-table">
-          <span class = "sub-header">Favorites Emoji List</span><br>
+          <h4 class = "sub-header">Favorites Emoji List</h4>
           <span id = "favorites-status-text">
             Content will appear hear after you have selected some emojis
             to be added as favorite. To add an emoji to favorites, simply
@@ -61,6 +62,29 @@
           </table>
           <button class="save-button" id="favorites-order-save" type="submit">
             Save Favorites Order
+          </button>
+        </div>
+        <br>
+        <div class="search-preference">
+          <h4 class="sub-header">Choose Default Search Option</h4>
+          <p>
+            <input type="radio" 
+                   id="default-emoji-search" 
+                   name="default-search"
+                   value="default-emoji-search" checked>
+            <label for="default-emoji-search">Emoji Search</label>
+          </p>
+          <p>
+            <input type="radio" 
+                   id="default-emote-search" 
+                   name="default-search"
+                   value="default-emote-search">
+            <label for="default-emoji-search">Emote Search</label>
+          </p>
+          <button class="save-button" 
+                  id="search-preference-save" 
+                  type="submit">
+            Save Search Preference
           </button>
         </div>
       </div>

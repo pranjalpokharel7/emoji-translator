@@ -62,14 +62,20 @@ body{
 
 .tab {
   cursor: pointer;
+  padding-bottom: 8px;
   text-align: center;
   flex: 1;
   color: salmon;
 }
 
+.selected-tab {
+  color: white;
+  border-bottom: 1px solid salmon;
+}
+
 /* style for emoji table */
 
-.tab-page{
+.tab-page, #search-results-page{
   display: none;
   height: 250px;
   flex-wrap: wrap;
@@ -80,14 +86,6 @@ body{
 
 #recents-table{
   display: flex;
-}
-
-#search-results-page {
-  display: none;
-  margin-top: 15px;
-  flex-wrap: wrap;
-  justify-content: left;
-  overflow-y: scroll;
 }
 
 /* style for text to be displayed when tab-page is empty*/
@@ -111,7 +109,7 @@ body{
 
 .emoji-button{
   font-size: 20px;
-  width: 64px;
+  width: 65px;
   padding: 5px;
 }
 
