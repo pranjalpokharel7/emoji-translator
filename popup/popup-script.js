@@ -88,6 +88,11 @@ const tabPages = document.querySelectorAll('.tab-page');
 const allEmojis = Array.from(document.querySelectorAll(".emoji-button"));
 const allEmotes = Array.from(document.querySelectorAll(".emote-button"));
 
+// add clipboard functionality to emote buttons, for emojis check 
+// ./recent-emotes-script.js
+allEmotes.forEach(emoteButton => emoteButton.addEventListener("click", 
+    () => navigator.clipboard.writeText(emoteButton.textContent)));
+
 function filterEmojis(event, searchChoice){
     let input = searchDoc.value.toLowerCase();
     emojiStyleReset();

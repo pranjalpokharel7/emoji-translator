@@ -1,23 +1,32 @@
 const emojiRow = document.querySelectorAll(".emoji-row");
 const saveButton = document.querySelector("#favorites-order-save");
 const favoritesStatusText = document.querySelector("#favorites-status-text");
+const clearFavoritesButton = document.querySelector('#favorites-clear');
 
-browser.storage.local.get("favoritesEmojiList")
-  .then(loadEmojisToTable)
-  .catch(error => console.log(`Error: ${error}`))
+// load recently used emojis from local storage first
+function loadEmojisFromStorage(){
+  browser.storage.local.get("favoritesEmojiList")
+    .then(loadEmojisToTable)
+    .catch(error => console.log(`Error: ${error}`))
+}
 
+loadEmojisFromStorage();
+
+// add the loaded emojis to the table
 function loadEmojisToTable(response){
   let favoritesEmojiList = response.favoritesEmojiList; 
 
-  if (!favoritesEmojiList){
+  if (!favoritesEmojiList.length){
     // do not display the button if the user has no favorites yet
     saveButton.style.display = "none";
+    clearFavoritesButton.style.display = "none";
     return;
   }
-  
+
   favoritesStatusText.textContent = "Drag and drop to arrange the order" +
     " in which the favorite emojis will be displayed.";
   saveButton.style.display = "block";
+  clearFavoritesButton.style.display = "block";
   emojiRow.forEach(tableRow => {
     let emojiGroup = favoritesEmojiList.splice(0, 6);
     emojiGroup.forEach(emoji => {
@@ -92,9 +101,11 @@ function handleDrop(event){
 }
 
 // event handler for save button
-function EmojiObject(id, value){
-  this.id = id;
-  this.value = value;
+class EmojiObject{
+  constructor(id, value){
+    this.id = id;
+    this.value = value;
+  }
 }
 
 function saveEmojiOrder(event){
@@ -106,6 +117,18 @@ function saveEmojiOrder(event){
   });    
 
   browser.storage.local.set({
-   "favoritesEmojiList" : favoritesEmojiList,
+    "favoritesEmojiList" : favoritesEmojiList,
   });
 }
+
+// event handler for clearing all favorites
+clearFavoritesButton.addEventListener("click", () => {
+  if (clearFavoritesButton.textContent === "Clear All Favorites"){
+    clearFavoritesButton.textContent = "Undo Clearing"
+    emojiRow.forEach(row => row.innerHTML = "");
+  }
+  else {
+    clearFavoritesButton.textContent = "Clear All Favorites";
+    loadEmojisFromStorage();
+  }
+});

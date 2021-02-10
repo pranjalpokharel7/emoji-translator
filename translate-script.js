@@ -1877,7 +1877,6 @@ function emojiReplaceInput(event) {
 
 function updateEmoji(node) {
   const prevString = node.textContent;
-  console.log(node.firstChild.firstChild);
   if (node.firstChild.firstChild = Node.TEXT_NODE){
     if (re.test(prevString)){
       const newString = prevString.replace(re, replaceByEmojiDiv);
@@ -1898,15 +1897,27 @@ function translateFunction(event){
     return;
   }
 
+  // the code below is for sites like facebook, twitter and others
+  // shitty sites that make simple typing into text inputs overtly complex
+  // and difficult for this extension to work with. 
+  // please help us by contributing to the code snippet that follows
+  
   if (nodeName == "div"){
     let node = event.target;
     while(node.firstChild){
       node = node.firstChild; 
     }
     let divNode = node.parentNode.parentNode; 
+
+    // for every new emoji added, the sites add a new span, all text inputs
+    // are stored in spans, each emoji getting it's own separate element
     if (divNode.nodeName.toLowerCase() == "span")
       divNode = divNode.parentNode;
     let childSpans = divNode.childNodes;
+
+    // the attempt was to work with text content by identifying all present
+    // span elements, worked 2 months ago, but doesn't now, placed here 
+    // as a cry for help
     childSpans.forEach(item => {
       updateEmoji(item); 
     }); 

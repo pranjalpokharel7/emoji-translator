@@ -44,3 +44,10 @@
   cursor: pointer;
   border: 1px solid #dcdcdc;
 }
+
+#favorites-save-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+
