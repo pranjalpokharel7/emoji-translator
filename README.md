@@ -22,7 +22,9 @@ Simply use 'TURN ON'/'TURN OFF' button to enable/disable the translation feature
 \
 The ':' character is the default for capturing the emoji name group, but it can also be changed from the settings page (starting and ending character change) to any character of the user's choice. Refresh the emoji after changing the start/end character using the 'REFRESH' button.\
 \
-**Note:** The translations can be found on the help/settings tab 'Dictionary'.
+**Note:** The translations can be found on the help/settings tab 'Dictionary'.\
+\
+![translation_gif](https://raw.githubusercontent.com/pranjalpokharel7/emoji-translator/main/screenshots/translation.gif?token=AK2KZE2SCCY6QJ7OEESC5Y3AFVPZ2)
 
 #### Emoji/Emote Copy 
 The user can press on individual emoji/emote from the tabs to copy the content to clipboard. Paste from the clipboard when convenient.\
