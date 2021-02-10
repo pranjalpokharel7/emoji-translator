@@ -34,7 +34,8 @@ Additionally, you can use the **'Search...'** bar to quickly search for an emoji
 
 #### Recents/Favorites
 Any emoji button pressed will be added to the **Recent** tab. Users can add any emoji to the **Favorites** tab for quick access by right-click on an emoji button.
-Note that the current limit on the total number of emojis on these tabs is 60 for now, but we will make it changeable to users in the next update. Currently emotes are not supported in the recent/favorites tab.
+Note that the current limit on the total number of emojis on these tabs is 60 for now, but we will make it changeable to users in the next update. Currently emotes are not supported in the recent/favorites tab.\
+\
 ![recents_page.png](https://raw.githubusercontent.com/pranjalpokharel7/emoji-translator/main/screenshots/recents_page.png?token=AK2KZE2H5Q6RECOUXCG7EFTAFVH2I)
 
 ### How you can contribute
