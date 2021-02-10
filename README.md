@@ -13,7 +13,7 @@ Currently, the addon is only available for Firefox, but we are working on making
 The extension should now load temporarily for testing purposes.
 
 ### Adding To Your Browser (Permanently)
-The link to the addon in the addon store will be available soon, after we submit it to the addon store after a few bug fixes.
+The link to the addon in the addon store will be available soon, after the addon store reviews and accepts our extension.
 
 ### How To Use
 
@@ -42,3 +42,6 @@ Note that the current limit on the total number of emojis on these tabs is 60 fo
 
 ### How you can contribute
 While the translator works for most websites, we have found it diffult to configure the function for websites that have complex elements to capture texts such as Facebook or Twitter. We realize that these are probably the sites for which users may want the functionality to be available the most. You can contribute to improving functionalities for these sites. The translation script is available in the file `/translate-script.js`.
+
+### Icon Attribution
+[@Sandace11](https://github.com/Sandace11/) - Sandesh Ghimire, Lime Color
