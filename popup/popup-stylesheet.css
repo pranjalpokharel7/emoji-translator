@@ -1,6 +1,6 @@
 html, body{
   width: 450px;
-  height: 450px;
+  height: 480px;
 }
 
 body{
@@ -166,6 +166,7 @@ body{
   height: 30px;
   margin: 0px 2px;
   padding-left: 7px;
+  width: 80%
 }
 
 .horizontal-line {
