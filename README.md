@@ -27,7 +27,8 @@ The ':' character is the default for capturing the emoji name group, but it can 
 #### Emoji/Emote Copy 
 The user can press on individual emoji/emote from the tabs to copy the content to clipboard. Paste from the clipboard when convenient.\
 \
-Additionally, you can use the **'Search...'** bar to quickly search for an emoji/emote. By default, the search bar searches for an emoji of related search query, however this too can be changed using the settings page.
+Additionally, you can use the **'Search...'** bar to quickly search for an emoji/emote. By default, the search bar searches for an emoji of related search query, however this too can be changed using the settings page.\
+\
 ![emoji_page.png](https://raw.githubusercontent.com/pranjalpokharel7/emoji-translator/main/screenshots/emoji_page.png?token=AK2KZE24FOUF5KJEW7AA2ADAFVHZY)
 ![emote_page.png](https://raw.githubusercontent.com/pranjalpokharel7/emoji-translator/main/screenshots/emote_page.png?token=AK2KZEY6F2D5UMTP3INP2VLAFVH2I)
 
