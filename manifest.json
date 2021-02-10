@@ -6,7 +6,7 @@
   "description": "Emoji Translator for :emoji:",
 
   "icons": {
-    "48": "assets/Butterfly.png"
+    "48": "assets/icon.png"
   },
   
   "permissions": [
@@ -18,7 +18,7 @@
   ],
 
   "browser_action": {
-    "default_icon": "assets/Butterfly.png",
+    "default_icon": "assets/icon.png",
     "default_title": "Emoji Translator",
     "default_popup": "popup/popup-content.html"
   },
