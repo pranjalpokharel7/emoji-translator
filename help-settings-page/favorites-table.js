@@ -92,8 +92,8 @@ function handleDrop(event){
   const emojiToBeSwapped = event.target;
 
   if (emojiToBeDragged != emojiToBeSwapped){
-    emojiToBeDragged.innerHTML = emojiToBeSwapped.innerHTML;
-    emojiToBeSwapped.innerHTML = event.dataTransfer.getData('text/html');
+    emojiToBeDragged.textContent = emojiToBeSwapped.textContent;
+    emojiToBeSwapped.textContent = event.dataTransfer.getData('text/html');
     emojiToBeSwapped.classList.remove('swap');
   }
 
