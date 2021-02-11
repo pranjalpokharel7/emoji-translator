@@ -42,3 +42,20 @@ searchChoiceSaveButton.addEventListener("click", () =>  {
     }  
   }); 
 });
+
+function loadCurrentSearchChoice(){
+  browser.storage.local.get("searchChoice")
+    .then(response => {
+      if (response.searchChoice == "default-emote-search"){
+        defaultSearchOptions[1].checked = true;
+        defaultSearchOptions[0].checked = false;
+      }
+      else {
+        defaultSearchOptions[1].checked = false;
+        defaultSearchOptions[0].checked = true;
+      }
+    })
+    .catch(error => console.log(`Error: ${error}`)); 
+}
+
+loadCurrentSearchChoice();

@@ -9,7 +9,7 @@
 }
 
 .swap {
-  background-color: #dcdcdc;
+  background-color: #313131 !important;
 }
 
 .warning{
@@ -51,3 +51,8 @@
   width: 50%;
 }
 
+#unsaved-data {
+  display: none;
+  font-size: 16px;
+  color: salmon;
+}

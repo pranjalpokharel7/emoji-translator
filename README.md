@@ -4,7 +4,7 @@ Emoji translator is an addon for browsers that translates keywords to emoji acro
 ':' + 'heart' + ':' to ❤️
 
 ### Adding To Your Browser (Temporarily)
-Currently, the addon is only available for Firefox, but we are working on making it cross-browser soon.\
+Currently, the addon is only available for Firefox, but we are working on making it cross-browser soon.
 - Clone the repository to your local directory.\
 `$ git clone https://github.com/pranjalpokharel7/emoji-translator.git`
 - Open Firefox and type `about:debugging` in the URL bar which will open the debugging page.
@@ -20,7 +20,7 @@ The link to the addon in the addon store will be available soon, after we submit
 #### Translation
 Simply use 'TURN ON'/'TURN OFF' button to enable/disable the translation feature. The extension will attempt to replace any emoji name typed in a text capturing element that matches the regex pattern`:[a-z_]:` by the adequate emoji, if the emoji exists in the extension database.\
 \
-The ':' character is the default for capturing the emoji name group, but it can also be changed from the settings page (starting and ending character change) to any character of the user's choice. Refresh the emoji after changing the start/end character using the 'REFRESH' button.\
+The ':' character is the default for capturing the emoji name group, but it can also be changed from the settings page (starting and ending character change) to any character of the user's choice. Reload any page you were previously working on for the new translation pattern change to be noticeable.\
 \
 **Note:** The translations can be found on the help/settings tab 'Dictionary'.\
 \

@@ -2,6 +2,7 @@ const emojiRow = document.querySelectorAll(".emoji-row");
 const saveButton = document.querySelector("#favorites-order-save");
 const favoritesStatusText = document.querySelector("#favorites-status-text");
 const clearFavoritesButton = document.querySelector('#favorites-clear');
+const unsavedStatusText = document.querySelector('#unsaved-data');
 
 // load recently used emojis from local storage first
 function loadEmojisFromStorage(){
@@ -95,6 +96,7 @@ function handleDrop(event){
     emojiToBeDragged.textContent = emojiToBeSwapped.textContent;
     emojiToBeSwapped.textContent = event.dataTransfer.getData('text/html');
     emojiToBeSwapped.classList.remove('swap');
+    unsavedStatusText.style.display = "block";
   }
 
   return false;
@@ -119,6 +121,7 @@ function saveEmojiOrder(event){
   browser.storage.local.set({
     "favoritesEmojiList" : favoritesEmojiList,
   });
+  unsavedStatusText.style.display = "none";
 }
 
 // event handler for clearing all favorites
@@ -126,6 +129,7 @@ clearFavoritesButton.addEventListener("click", () => {
   if (clearFavoritesButton.textContent === "Clear All Favorites"){
     clearFavoritesButton.textContent = "Undo Clearing"
     emojiRow.forEach(row => row.innerHTML = "");
+    unsavedStatusText.style.display = "block";
   }
   else {
     clearFavoritesButton.textContent = "Clear All Favorites";
