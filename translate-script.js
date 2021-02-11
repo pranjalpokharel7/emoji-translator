@@ -1862,11 +1862,6 @@ function replaceByEmoji (match){
   return emojiDictionary.has(match) ? emojiDictionary.get(match) : match;
 }
 
-function replaceByEmojiDiv (match){
-  match = match.substring(1, match.length);
-  return emojiDictionary.has(match) ? `${emojiDictionary.get(match)}` : match;
-}
-
 function emojiReplaceInput(event) {
   const prevString = event.target.value;
   const newString = prevString.replaceAll(re, replaceByEmoji);
@@ -1879,10 +1874,10 @@ function updateEmoji(node) {
   const prevString = node.textContent;
   if (node.firstChild.firstChild = Node.TEXT_NODE){
     if (re.test(prevString)){
-      const newString = prevString.replace(re, replaceByEmojiDiv);
+      const newString = prevString.replace(re, replaceByEmoji);
       if (newString == prevString)
         return;
-      node.firstChild.firstChild.textContent = newString; 
+      node.firstChild.textContent = newString; 
     }
   }
 }
