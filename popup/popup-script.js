@@ -1,8 +1,3 @@
-//---------------- refresh button code ----------------
-
-const refreshButton = document.querySelector("#refresh-button");
-refreshButton.addEventListener("click", () => browser.runtime.reload());
-
 //---------------- toggle button (turn on/off) code ----------------
 
 let toggleChoice = null;
@@ -93,7 +88,7 @@ const allEmotes = Array.from(document.querySelectorAll(".emote-button"));
 allEmotes.forEach(emoteButton => emoteButton.addEventListener("click", 
     () => navigator.clipboard.writeText(emoteButton.textContent)));
 
-function filterEmojis(event, searchChoice){
+function filterEmojis(searchChoice){
     let input = searchDoc.value.toLowerCase();
     emojiStyleReset();
 
@@ -125,7 +120,7 @@ function emojiStyleReset(){
 
 function addSearchEvent(response){
     searchDoc.addEventListener("keyup", 
-        event => filterEmojis(event, response.searchChoice));
+        () => filterEmojis(response.searchChoice));
 }
 
 let searchDoc = document.querySelector("#search");
