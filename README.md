@@ -3,13 +3,17 @@
 Emoji translator is an addon for browsers that translates keywords to emoji across all URLs in the format :keyword: -> emoji, for example,\
 ':' + 'heart' + ':' to ❤️
 
+### Adding To Your Browser
+The link to the addon is available now!\
+**Add to your Firefox from this link - [addons/emoji-tanslator](https://addons.mozilla.org/en-US/firefox/addon/emoji-translator)**
+
 ### What's New (v1.1)
 - Shortcut to open popup (Ctrl+Period key combo by default, can be changed from the addon menu - refer ['Managing Extension Shortcuts'](https://support.mozilla.org/en-US/kb/manage-extension-shortcuts-firefox))
 - Search button focus when popup is opened
 - Bug fixes for Facebook and Twitter
 - Stylistic changes
 
-### Adding To Your Browser (Temporarily)
+### Adding To Your Browser (Temporarily, For Development)
 Currently, the addon is only available for Firefox, but we are working on making it cross-browser soon.
 - Clone the repository to your local directory.\
 `$ git clone https://github.com/pranjalpokharel7/emoji-translator.git`
@@ -19,9 +23,6 @@ Currently, the addon is only available for Firefox, but we are working on making
 The extension should now load temporarily for testing purposes.\
 \
 **Note:** You can refer to this short clip that demonstrates the process - [Loading Temporary Addon in Firefox](https://www.youtube.com/watch?v=J7el77F1ckg)
-
-### Adding To Your Browser (Permanently)
-The link to the addon in the addon store will be available soon, after the addon store reviews and accepts our extension.
 
 ### How To Use
 
