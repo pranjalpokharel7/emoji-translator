@@ -44,6 +44,8 @@ settingButton.addEventListener("click", () => {
 //---------------- page navigation ----------------
 // might need refactoring and optimization, inside pageScroll, the 2 if-blocks
 
+let currentTabIndex = 0; //making search and tab change compatible
+
 const nextButton = document.querySelector("#next");
 const previousButton = document.querySelector("#previous");
 
@@ -100,7 +102,7 @@ function filterEmojis(searchChoice){
 
     if (input == ""){
         searchPage.style.display = "none";
-        allTabPages[0].style.display = "flex"; // defined below
+        allTabPages[currentTabIndex].style.display = "flex"; // defined below
         return;
     }
 
@@ -153,6 +155,7 @@ function toggleTabs(event, index){
 
     isEmojiTabOpen = index == 2 ? true : false;
     isEmoteTabOpen = index == 3 ? true : false;
+
+    currentTabIndex = index;
 }
 
-// bug: when search is active, tab changing doesn't work as intended

@@ -40,7 +40,7 @@
   "commands": {
     "_execute_browser_action": {
       "suggested_key": {
-        "default": "Ctrl+E"
+        "default": "Ctrl‌+Alt+L"
       }
     }
   }
