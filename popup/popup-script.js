@@ -1,3 +1,9 @@
+//---------------- focus directly on search bar when window loads----------------
+const searchInput = document.querySelector("#search");
+window.onload = function() {
+    searchInput.focus();
+}
+
 //---------------- toggle button (turn on/off) code ----------------
 
 let toggleChoice = null;
@@ -89,7 +95,7 @@ allEmotes.forEach(emoteButton => emoteButton.addEventListener("click",
     () => navigator.clipboard.writeText(emoteButton.textContent)));
 
 function filterEmojis(searchChoice){
-    let input = searchDoc.value.toLowerCase();
+    let input = searchInput.value.toLowerCase();
     emojiStyleReset();
 
     if (input == ""){
@@ -119,11 +125,10 @@ function emojiStyleReset(){
 }
 
 function addSearchEvent(response){
-    searchDoc.addEventListener("keyup", 
+    searchInput.addEventListener("keyup", 
         () => filterEmojis(response.searchChoice));
 }
 
-let searchDoc = document.querySelector("#search");
 browser.storage.local.get("searchChoice")
     .then(addSearchEvent)
     .catch(error => console.log(`Error: ${error}`));
@@ -149,3 +154,5 @@ function toggleTabs(event, index){
     isEmojiTabOpen = index == 2 ? true : false;
     isEmoteTabOpen = index == 3 ? true : false;
 }
+
+// bug: when search is active, tab changing doesn't work as intended

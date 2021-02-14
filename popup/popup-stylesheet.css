@@ -1,5 +1,5 @@
 html, body{
-  width: 450px;
+  width: 440px;
   height: 480px;
 }
 
@@ -9,16 +9,6 @@ body{
   color: #dcdcdc;
   overflow: hidden;
   font-size: 17px;
-}
-
-/* style for title heading*/
-
-.title{
-  font-size: 25px;
-  color: salmon;
-  text-align: center;
-  font-weight: bold;
-  padding: 5px;
 }
 
 /* control button */
@@ -70,7 +60,7 @@ body{
 
 .selected-tab {
   color: white;
-  border-bottom: 1px solid salmon;
+  border-bottom: 2px solid salmon;
 }
 
 /* style for emoji table */
@@ -84,6 +74,12 @@ body{
   overflow-y: scroll;
 }
 
+#search-results-page {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #recents-table{
   display: flex;
 }
@@ -93,7 +89,7 @@ body{
 .empty-text {
   color: #69727b;
   text-align: center;
-  font-size: 16px;
+  font-size: 18px;
   width: 75%;
   margin: 15% auto;
 }
@@ -128,26 +124,42 @@ body{
   transform: scale(0.95);
 }
 
-.toggle-button#toggle-on{
-  background-color: green;
+/* style for emoji/emote pages*/
+
+.fab-page, .recents-page {
+  margin-left: 15px;
 }
 
 .emote-page, .emoji-page {
+  font-size: 0px;
+  margin-left: auto;
+  margin-right: auto;
   display: none;
+}
+
+.emote-page {
+  width: 96%;
+}
+
+.emoji-page {
+  width: 93%;
 }
 
 .emote-page:nth-child(1), .emoji-page:nth-child(1) {
   display: block;
 }
 
+/* style for navigation buttons/search bar*/
+
 #search-bar{
   margin: 10px 10px;
 }
 
 #navigation {
+  width: 95%;
+  margin: auto;
   display: flex;
-  flex-wrap: none;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 #search, #next, #previous {
@@ -159,7 +171,7 @@ body{
 
 #next, #previous{
   height: 35px;
-  width: 40%;
+  width: 45%;
 }
 
 #search {
