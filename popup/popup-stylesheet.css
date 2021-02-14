@@ -75,6 +75,7 @@ body{
 }
 
 #search-results-page {
+  height: 265px;
   width: 95%;
   margin-left: auto;
   margin-right: auto;

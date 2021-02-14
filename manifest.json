@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "emoji-translator",
-  "version": "1.0",
+  "version": "1.1",
 
   "description": "Emoji Translator for :emoji:",
 
@@ -40,7 +40,7 @@
   "commands": {
     "_execute_browser_action": {
       "suggested_key": {
-        "default": "Ctrl‌+Alt+L"
+        "default": "Ctrl+Period"
       }
     }
   }

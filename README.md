@@ -10,10 +10,17 @@ Currently, the addon is only available for Firefox, but we are working on making
 - Open Firefox and type `about:debugging` in the URL bar which will open the debugging page.
 - Click on the **'This Firefox'** tab and then on the **'Load Temporary Add-on...'** button.
 - A dialog box will open. Navigate to the cloned repository and open (double-click) the `manifest.json` file in the root folder. 
-The extension should now load temporarily for testing purposes.
+The extension should now load temporarily for testing purposes.\
+Note: You can refer to this short clip that demonstrates the process - [Loading Temporary Addon in Firefox](https://www.youtube.com/watch?v=J7el77F1ckg)
 
 ### Adding To Your Browser (Permanently)
 The link to the addon in the addon store will be available soon, after the addon store reviews and accepts our extension.
+
+### What's New (v1.1)
+- Shortcut to open popup (Ctrl+Period key combo by default, can be changed from the addon menu - refer ['Managing Extension Shortcuts'](https://support.mozilla.org/en-US/kb/manage-extension-shortcuts-firefox))
+- Search button focus when popup is opened
+- Bug fixes for Facebook and Twitter
+- Stylistic changes
 
 ### How To Use
 
