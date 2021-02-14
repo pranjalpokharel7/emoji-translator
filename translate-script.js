@@ -1,3 +1,75 @@
+//-----------------------------FUNCTIONS---------------------------------------------//
+
+let re = null, start_char = null, end_char = null;
+
+browser.storage.local.get(["leadCharacter", "endCharacter"])
+  .then(result => {
+    start_char = result.leadCharacter ?  result.leadCharacter : ':'; 
+    end_char = result.endCharacter ? result.endCharacter : ':'; 
+    re = new RegExp(start_char+'[a-z_]+'+end_char,'g')
+    document.body.addEventListener("keydown", translateFunction);
+  })
+  .catch(error => console.log(`Error: ${error}`));
+
+function replaceByEmoji (match){
+  match = match.substring(1, match.length-1);
+  return emojiDictionary.has(match) ? emojiDictionary.get(match) : match;
+}
+
+function emojiReplaceInput(event) {
+  const prevString = event.target.value;
+  const newString = prevString.replaceAll(re, replaceByEmoji);
+  if (newString == prevString)
+    return;
+  event.target.value = newString;
+}
+
+function updateEmoji(node) {
+  const prevString = node.textContent;
+  if (node.firstChild.firstChild = Node.TEXT_NODE){
+    if (re.test(prevString)){
+      const newString = prevString.replace(re, replaceByEmoji);
+      if (newString == prevString)
+        return;
+      node.firstChild.textContent = newString; 
+    }
+  }
+}
+
+function translateFunction(event){
+  const nodeName = event.target.nodeName.toLowerCase();
+  if (nodeName == "body")
+    return;
+
+  if (nodeName == "input" || nodeName == "textarea"){
+    event.target.addEventListener("keydown", emojiReplaceInput);
+    return;
+  }
+
+  // the code below is for sites like facebook, twitter and others
+  // sites that make simple typing into text inputs overly complex
+  // and difficult for this extension to work with. 
+  // please help us by contributing to the code snippet that follows
+  
+  if (nodeName == "div"){
+    let node = event.target;
+    while(node.firstChild){
+      node = node.firstChild; 
+    }
+    let divNode = node.parentNode.parentNode; 
+
+    // for every new emoji added, the sites add a new span, all text inputs
+    // are stored in spans, each emoji getting it's own separate element
+    if (divNode.nodeName.toLowerCase() == "span")
+      divNode = divNode.parentNode;
+    let childSpans = divNode.childNodes;
+
+    childSpans.forEach(item => {
+      updateEmoji(item); 
+    }); 
+  }
+}
+
 //------------------------------EMOJIDICTIONARY---------------------------------------------//
 
 let emojiDictionary = new Map();
@@ -1843,78 +1915,3 @@ emojiDictionary.set('red_hair','🦰');
 emojiDictionary.set('curly_hair','🦱');
 emojiDictionary.set('white_hair','🦳');
 emojiDictionary.set('bald','🦲');
-
-//-----------------------------FUNCTIONS---------------------------------------------//
-
-let re = null, start_char = null, end_char = null;
-
-browser.storage.local.get(["leadCharacter", "endCharacter"])
-  .then(result => {
-    start_char = result.leadCharacter ?  result.leadCharacter : ':'; 
-    end_char = result.endCharacter ? result.endCharacter : ':'; 
-    re = new RegExp(start_char+'[a-z_]+'+end_char,'g')
-    document.body.addEventListener("keydown", translateFunction);
-  })
-  .catch(error => console.log(`Error: ${error}`));
-
-function replaceByEmoji (match){
-  match = match.substring(1, match.length-1);
-  return emojiDictionary.has(match) ? emojiDictionary.get(match) : match;
-}
-
-function emojiReplaceInput(event) {
-  const prevString = event.target.value;
-  const newString = prevString.replaceAll(re, replaceByEmoji);
-  if (newString == prevString)
-    return;
-  event.target.value = newString;
-}
-
-function updateEmoji(node) {
-  const prevString = node.textContent;
-  if (node.firstChild.firstChild = Node.TEXT_NODE){
-    if (re.test(prevString)){
-      const newString = prevString.replace(re, replaceByEmoji);
-      if (newString == prevString)
-        return;
-      node.firstChild.textContent = newString; 
-    }
-  }
-}
-
-function translateFunction(event){
-  const nodeName = event.target.nodeName.toLowerCase();
-  if (nodeName == "body")
-    return;
-
-  if (nodeName == "input" || nodeName == "textarea"){
-    event.target.addEventListener("keydown", emojiReplaceInput);
-    return;
-  }
-
-  // the code below is for sites like facebook, twitter and others
-  // shitty sites that make simple typing into text inputs overtly complex
-  // and difficult for this extension to work with. 
-  // please help us by contributing to the code snippet that follows
-  
-  if (nodeName == "div"){
-    let node = event.target;
-    while(node.firstChild){
-      node = node.firstChild; 
-    }
-    let divNode = node.parentNode.parentNode; 
-
-    // for every new emoji added, the sites add a new span, all text inputs
-    // are stored in spans, each emoji getting it's own separate element
-    if (divNode.nodeName.toLowerCase() == "span")
-      divNode = divNode.parentNode;
-    let childSpans = divNode.childNodes;
-
-    // the attempt was to work with text content by identifying all present
-    // span elements, worked 2 months ago, but doesn't now, placed here 
-    // as a cry for help
-    childSpans.forEach(item => {
-      updateEmoji(item); 
-    }); 
-  }
-}
